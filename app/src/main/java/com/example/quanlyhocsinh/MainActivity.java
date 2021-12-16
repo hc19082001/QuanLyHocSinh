@@ -12,6 +12,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     EditText edt_username;
+    ssssss
     EditText edt_password;
     Button btnDANGNHAP;
     @Override
