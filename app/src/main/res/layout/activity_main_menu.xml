@@ -28,24 +28,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="109dp"
-        android:layout_marginTop="45dp"
         android:layout_marginEnd="112dp"
         android:backgroundTint="#009688"
         android:text="QUẢN LÝ HỌC SINH"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnTHEM" />
+        tools:layout_editor_absoluteY="163dp" />
 
-    <Button
-        android:id="@+id/btnTHEM"
-        android:layout_width="191dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="109dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="112dp"
-        android:backgroundTint="#009688"
-        android:text="THÊM HỌC SINH"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
