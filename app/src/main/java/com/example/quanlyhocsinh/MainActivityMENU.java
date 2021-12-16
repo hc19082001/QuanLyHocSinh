@@ -16,7 +16,7 @@ public class MainActivityMENU extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        btnThem = findViewById(R.id.btnTHEM);
+
         btnDanhsach = findViewById(R.id.btnDANHSACH);
 
         btnThem.setOnClickListener(new View.OnClickListener() {
