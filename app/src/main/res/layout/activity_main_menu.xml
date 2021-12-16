@@ -12,13 +12,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="171dp"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="182dp"
         android:text="QUẢN LÝ HỌC SINH"
         android:textColor="@color/teal_700"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,7 +31,7 @@
         android:layout_marginTop="45dp"
         android:layout_marginEnd="112dp"
         android:backgroundTint="#009688"
-        android:text="HIỂN THỊ DANH SÁCH"
+        android:text="QUẢN LÝ HỌC SINH"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnTHEM" />

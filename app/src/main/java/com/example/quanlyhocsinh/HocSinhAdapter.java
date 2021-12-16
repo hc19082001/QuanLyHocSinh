@@ -4,12 +4,15 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,22 +58,28 @@ public class HocSinhAdapter extends BaseAdapter {
         TextView tv_id = itemView.findViewById(R.id.tv_id);
         TextView tv_ten = itemView.findViewById(R.id.tv_ten);
         TextView tv_lop = itemView.findViewById(R.id.tv_lop);
-        TextView tv_tuoi = itemView.findViewById(R.id.tv_tuoi);
-        TextView tv_gioitinh = itemView.findViewById(R.id.tv_gioitinh);
-        TextView tv_sua = itemView.findViewById(R.id.tv_sua);
-        TextView tv_xoa = itemView.findViewById(R.id.tv_xoa);
+        ImageView img_GT = itemView.findViewById(R.id.imv_gt);
+        ImageButton img_btn_Xem = itemView.findViewById(R.id.imgbtnThongTin);
+        ImageButton img_btn_Sua = itemView.findViewById(R.id.imgbtnSua);
+        ImageButton img_btn_Xoa = itemView.findViewById(R.id.imgbtnXoa);
 
-        tv_ten.setOnClickListener(new View.OnClickListener() {
+
+        img_btn_Xem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(viewGroup.getContext());
                 builder.setTitle("Thông tin học sinh");
+                String gt = "Nữ";
+                if (hocSinh.isGioitinh_hs()) {
+                    gt = "Nam";
+                }
                 builder.setIcon(android.R.drawable.ic_input_add);
                 builder.setMessage("ID : "+hocSinh.getId_hs()+
                         "\nTên : "+hocSinh.getTen_hs()+
                         "\nLớp : "+hocSinh.getLop_hs()+
-                        "\nTuổi : "+hocSinh.getTuoi_hs()+
-                        "\ngiới tính : "+hocSinh.getTuoi_hs());
+                        "\nNăm sinh : "+hocSinh.getNs_hs()+
+                        "\ngiới tính : "+ gt +
+                        "\nĐịa chỉ : "+hocSinh.getDiachi_hs());
                 builder.setPositiveButton("THOÁT", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -81,13 +90,13 @@ public class HocSinhAdapter extends BaseAdapter {
                 dialog.show();
             }
         });
-        tv_sua.setOnClickListener(new View.OnClickListener() {
+        img_btn_Sua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDialogUpdate(viewGroup.getContext(),position ,hocSinh);
             }
         });
-        tv_xoa.setOnClickListener(new View.OnClickListener() {
+        img_btn_Xoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(viewGroup.getContext());
@@ -122,105 +131,60 @@ public class HocSinhAdapter extends BaseAdapter {
         tv_id.setText(hocSinh.getId_hs()+"");
         tv_ten.setText(hocSinh.getTen_hs());
         tv_lop.setText(hocSinh.getLop_hs());
-        tv_tuoi.setText(hocSinh.getTuoi_hs()+"");
-        tv_gioitinh.setText(hocSinh.getGioitinh_hs());
+        if (hocSinh.isGioitinh_hs()) {
+            img_GT.setImageResource(R.drawable.ic_baseline_boy_24);
+        } else {
+            img_GT.setImageResource(R.drawable.ic_baseline_local_florist_24);
+        }
 
         return itemView;
     }
 
-    public void showDialogAdd(Context context){
-        final Dialog dialog = new Dialog(context,R.style.Theme_AppCompat_Light_Dialog_Alert);
-        dialog.setContentView(R.layout.dialog_them_tiep);
-
-        EditText edt_ten = dialog.findViewById(R.id.edtTenTHEMTIEP);
-        EditText edt_lop = dialog.findViewById(R.id.edtLopTHEMTIEP);
-        EditText edt_tuoi = dialog.findViewById(R.id.edtTuoiTHEMTIEP);
-        EditText edt_gioitinh = dialog.findViewById(R.id.edtGioiTinhTHEMTIEP);
-
-        Button btnClear = dialog.findViewById(R.id.btnClearTHEMTIEP);
-        Button btnSave = dialog.findViewById(R.id.btnLuuTHEMTIEP);
-
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                HocSinh hocSinh = new HocSinh();
-                String ten = edt_ten.getText().toString();
-                String lop = edt_lop.getText().toString();
-                int tuoi = Integer.parseInt(edt_tuoi.getText().toString());
-                String gioitinh = edt_gioitinh.getText().toString();
-
-                hocSinh.setTen_hs(ten);
-                hocSinh.setLop_hs(lop);
-                hocSinh.setTuoi_hs(tuoi);
-                hocSinh.setGioitinh_hs(gioitinh);
-                long kq = hocSinhDAO.addRow(hocSinh);
-
-                if(kq>0){
-                    listHocSinhs.clear();
-                    listHocSinhs.addAll(hocSinhDAO.getAll());
-                    notifyDataSetChanged();
-
-                    Toast.makeText(context, "THÊM THÀNH CÔNG", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(context, "THÊM THẤT BẠI", Toast.LENGTH_SHORT).show();
-                }
-                dialog.dismiss();
-            }
-        });
-        btnClear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                edt_ten.setText("");
-                edt_lop.setText("");
-                edt_tuoi.setText("");
-                edt_gioitinh.setText("");
-            }
-        });
-        dialog.show();
-    }
 
     public void showDialogUpdate(Context context,int vitri,HocSinh hocSinh){
+
         final Dialog dialog = new Dialog(context,R.style.Theme_AppCompat_Light_Dialog_Alert);
         dialog.setContentView(R.layout.dialog_sua);
 
         TextView tv_id = dialog.findViewById(R.id.tvIDSUA);
         EditText edt_ten = dialog.findViewById(R.id.edtTenSUA);
         EditText edt_lop = dialog.findViewById(R.id.edtLopSUA);
-        EditText edt_tuoi = dialog.findViewById(R.id.edtTuoiSUA);
-        EditText edt_gioitinh = dialog.findViewById(R.id.edtGioiTinhSUA);
-
-        Button btnClear = dialog.findViewById(R.id.btnClearSUA);
+        EditText edt_NS = dialog.findViewById(R.id.edtNSSUA);
+        EditText edt_diachi = dialog.findViewById(R.id.edtDiaChiSUA);
         Button btnUpdate = dialog.findViewById(R.id.btnCapNhatSUA);
+        RadioButton radioButtonNam = dialog.findViewById(R.id.rbtn_Nam_Update);
+        RadioButton radioButtonNu = dialog.findViewById(R.id.rbtn_Nu_Update);
+        RadioGroup radioGroup = dialog.findViewById(R.id.radioGroup_Update);
 
         tv_id.setText(hocSinh.getId_hs()+"");
         edt_ten.setText(hocSinh.getTen_hs());
         edt_lop.setText(hocSinh.getLop_hs());
-        edt_tuoi.setText(hocSinh.getTuoi_hs()+"");
-        edt_gioitinh.setText(hocSinh.getGioitinh_hs());
+        edt_NS.setText(hocSinh.getNs_hs()+"");
+        if (hocSinh.isGioitinh_hs()) {
+            radioButtonNam.setChecked(true);
+        } else {
+            radioButtonNu.setChecked(true);
+        }
+        edt_diachi.setText(hocSinh.getDiachi_hs());
 
 
-        btnClear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                edt_ten.setText("");
-                edt_lop.setText("");
-                edt_tuoi.setText("");
-                edt_gioitinh.setText("");
-            }
-        });
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String ten = edt_ten.getText().toString();
                 String lop = edt_lop.getText().toString();
-                int tuoi = Integer.parseInt(edt_tuoi.getText().toString());
-                String gioitinh = edt_gioitinh.getText().toString();
+                int ns = Integer.parseInt(edt_NS.getText().toString());
+                boolean gt = false;
+                if (radioGroup.getCheckedRadioButtonId() == radioButtonNam.getId()) {
+                    gt = true;
+                }
+                String diachi = edt_diachi.getText().toString();
 
                 hocSinh.setTen_hs(ten);
                 hocSinh.setLop_hs(lop);
-                hocSinh.setTuoi_hs(tuoi);
-                hocSinh.setGioitinh_hs(gioitinh);
-
+                hocSinh.setNs_hs(ns);
+                hocSinh.setGioitinh_hs(gt);
+                hocSinh.setDiachi_hs(diachi);
                 int kq = hocSinhDAO.updateRow(hocSinh);
                 if(kq>0){
                     listHocSinhs.set(vitri,hocSinh);

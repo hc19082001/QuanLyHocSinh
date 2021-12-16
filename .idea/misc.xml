@@ -3,13 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.1125" />
+        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/drawable/ic_baseline_boy_24.xml" value="0.2203125" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_danhsach.xml" value="0.33" />
+        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_danhsach.xml" value="0.22" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_menu.xml" value="0.33" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_them.xml" value="0.33" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/dialog_sua.xml" value="0.25" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/dialog_them_tiep.xml" value="0.25" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/item_listview_hocsinh.xml" value="0.33" />
+        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/menu/menu_bar.xml" value="0.20416666666666666" />
         <entry key="..\:/MONHOC/ANDROID_COBAN/ONTAP_ANDROID/QuanLyHocSinh/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
         <entry key="..\:/MONHOC/ANDROID_COBAN/ONTAP_ANDROID/QuanLyHocSinh/app/src/main/res/layout/activity_main_danhsach.xml" value="0.24592391304347827" />
         <entry key="..\:/MONHOC/ANDROID_COBAN/ONTAP_ANDROID/QuanLyHocSinh/app/src/main/res/layout/activity_main_menu.xml" value="0.24592391304347827" />

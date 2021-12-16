@@ -7,14 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class MainActivityTHEM extends AppCompatActivity {
 
     EditText edt_ten;
     EditText edt_lop;
-    EditText edt_tuoi;
-    EditText edt_gt;
+    EditText edt_ns;
+    RadioGroup radioGroup_GT;
+    RadioButton radioButton_Nam;
+    RadioButton radioButton_Nu;
+    EditText edt_diachi;
     Button btnClear;
     Button btnSave;
     HocSinhDAO hocSinhDAO;
@@ -25,8 +30,11 @@ public class MainActivityTHEM extends AppCompatActivity {
 
         edt_ten = findViewById(R.id.edt_tenADD);
         edt_lop = findViewById(R.id.edt_lopADD);
-        edt_tuoi = findViewById(R.id.edt_tuoiADD);
-        edt_gt = findViewById(R.id.edt_gioitinhADD);
+        edt_ns = findViewById(R.id.edt_namsinhADD);
+        edt_diachi = findViewById(R.id.edt_diachi);
+        radioGroup_GT = findViewById(R.id.radioGroupNamNu);
+        radioButton_Nam = findViewById(R.id.rbNam);
+        radioButton_Nu = findViewById(R.id.rbNu);
 
         btnClear = findViewById(R.id.btnCLEARADD);
         btnSave = findViewById(R.id.btnLUUADD);
@@ -40,38 +48,31 @@ public class MainActivityTHEM extends AppCompatActivity {
                 HocSinh hocSinh = new HocSinh();
                 String ten = edt_ten.getText().toString();
                 String lop = edt_lop.getText().toString();
-                int tuoi = Integer.parseInt(edt_tuoi.getText().toString());
-                String gioitinh = edt_gt.getText().toString();
+                int ns = Integer.parseInt(edt_ns.getText().toString());
+                boolean gt = false;
+                if (radioGroup_GT.getCheckedRadioButtonId() == radioButton_Nam.getId()) {
+                    gt = true;
+                }
+                String dc = edt_diachi.getText().toString();
 
                 hocSinh.setTen_hs(ten);
+                hocSinh.setTen_hs(ten);
                 hocSinh.setLop_hs(lop);
-                hocSinh.setTuoi_hs(tuoi);
-                hocSinh.setGioitinh_hs(gioitinh);
-
+                hocSinh.setNs_hs(ns);
+                hocSinh.setGioitinh_hs(gt);
+                hocSinh.setDiachi_hs(dc);
                 long kq = hocSinhDAO.addRow(hocSinh);
 
                 if(kq>0){
-                    Intent intent = new Intent(MainActivityTHEM.this,MainActivityMENU.class);
+                    Toast.makeText(MainActivityTHEM.this, "THÊM THÀNH CÔNG", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivityTHEM.this,MainActivityDANHSACH.class);
                     startActivity(intent);
 
-                    Toast.makeText(MainActivityTHEM.this, "THÊM THÀNH CÔNG", Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(MainActivityTHEM.this, "THÊM THẤT BẠI", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-        btnClear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               edt_ten.setText("");
-               edt_lop.setText("");
-               edt_tuoi.setText("");
-               edt_gt.setText("");
-            }
-        });
-
-
 
     }
 }

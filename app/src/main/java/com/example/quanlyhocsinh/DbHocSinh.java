@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DbHocSinh extends SQLiteOpenHelper {
-    public static final String DB_NAME = "quanlyhocsinh.db";
+    public static final String DB_NAME = "quanlyhocsinh";
     public static final int DB_VERSION = 1;
     public DbHocSinh(Context context) {
         super(context,DB_NAME,null,DB_VERSION);
@@ -19,8 +19,9 @@ public class DbHocSinh extends SQLiteOpenHelper {
                "\t id_hs \tINTEGER NOT NULL,\n" +
                "\t ten_hs \tTEXT NOT NULL,\n" +
                "\t lop_hs \tTEXT NOT NULL,\n" +
-               "\t tuoi_hs \tINTEGER NOT NULL,\n" +
-               "\t gioitinh_hs \tTEXT NOT NULL,\n" +
+               "\t ns_hs \tINTEGER NOT NULL,\n" +
+               "\t gioitinh_hs \tINTEGER NOT NULL,\n" +
+               "\t diachi_hs \tTEXT NOT NULL,\n" +
                "\tPRIMARY KEY( id_hs  AUTOINCREMENT)\n" +
                ");";
        db.execSQL(sql_hocsinh);

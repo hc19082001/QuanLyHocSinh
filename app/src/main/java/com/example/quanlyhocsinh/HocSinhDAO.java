@@ -29,8 +29,14 @@ public class HocSinhDAO {
         ContentValues values = new ContentValues();
         values.put(HocSinh.COL_TEN,hocSinh.getTen_hs());
         values.put(HocSinh.COL_LOP,hocSinh.getLop_hs());
-        values.put(HocSinh.COL_TUOI,hocSinh.getTuoi_hs());
-        values.put(HocSinh.COL_GIOITINH,hocSinh.getGioitinh_hs());
+        values.put(HocSinh.COL_NAMSINH,hocSinh.getNs_hs());
+        values.put(HocSinh.COL_DIACHI,hocSinh.getDiachi_hs());
+
+        if (hocSinh.isGioitinh_hs()) {
+            values.put(HocSinh.COL_GIOITINH,1);
+        } else {
+            values.put(HocSinh.COL_GIOITINH,0);
+        }
 
         long res = database.insert(HocSinh.TB_NAME,null,values);
 
@@ -46,10 +52,16 @@ public class HocSinhDAO {
 
     public int updateRow(HocSinh hocSinh){
         ContentValues values = new ContentValues();
+
         values.put(HocSinh.COL_TEN,hocSinh.getTen_hs());
         values.put(HocSinh.COL_LOP,hocSinh.getLop_hs());
-        values.put(HocSinh.COL_TUOI,hocSinh.getTuoi_hs());
-        values.put(HocSinh.COL_GIOITINH,hocSinh.getGioitinh_hs());
+        values.put(HocSinh.COL_NAMSINH,hocSinh.getNs_hs());
+        values.put(HocSinh.COL_DIACHI,hocSinh.getDiachi_hs());
+        if (hocSinh.isGioitinh_hs()) {
+            values.put(HocSinh.COL_GIOITINH,1);
+        } else {
+            values.put(HocSinh.COL_GIOITINH,0);
+        }
 
         String [] arh = new String[]{hocSinh.getId_hs()+""};
 
@@ -69,8 +81,14 @@ public class HocSinhDAO {
                 hocSinh.setId_hs(cursor.getInt(0));
                 hocSinh.setTen_hs(cursor.getString(1));
                 hocSinh.setLop_hs(cursor.getString(2));
-                hocSinh.setTuoi_hs(cursor.getInt(3));
-                hocSinh.setGioitinh_hs(cursor.getString(4));
+                hocSinh.setNs_hs(cursor.getInt(3));
+
+                if (cursor.getInt(4) == 1) {
+                    hocSinh.setGioitinh_hs(true);
+                } else {
+                    hocSinh.setGioitinh_hs(false);
+                }
+                hocSinh.setDiachi_hs(cursor.getString(5));
 
                 listHocSinhs.add(hocSinh);
                 cursor.moveToNext();

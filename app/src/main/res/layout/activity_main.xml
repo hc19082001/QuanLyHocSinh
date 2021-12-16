@@ -44,6 +44,7 @@
         android:ems="10"
         android:hint="Tài Khoản"
         android:inputType="textPersonName"
+        android:text="admin"
         android:textColorHint="#938F8F"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,6 +60,7 @@
         android:ems="10"
         android:hint="Mật Khẩu"
         android:inputType="textPassword"
+        android:text="admin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_username" />

@@ -40,36 +40,64 @@
         android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/edtTuoiSUA"
+        android:id="@+id/edtNSSUA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Nhập tuổi"
+        android:hint="Nhập năm sinh"
         android:inputType="textPersonName"
         android:minHeight="48dp" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chọn giới tính"
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup_Update"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbtn_Nam_Update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nam" />
+
+            <RadioButton
+                android:id="@+id/rbtn_Nu_Update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:text="Nữ" />
+        </RadioGroup>
+    </LinearLayout>
+
     <EditText
-        android:id="@+id/edtGioiTinhSUA"
+        android:id="@+id/edtDiaChiSUA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Nhập giới tính"
+        android:hint="Nhập địa chỉ"
         android:inputType="textPersonName"
         android:minHeight="48dp" />
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/btnClearSUA"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="30dp"
-            android:backgroundTint="#009688"
-            android:text="CLEAR" />
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
         <Button
             android:id="@+id/btnCapNhatSUA"
