@@ -63,7 +63,6 @@ public class HocSinhAdapter extends BaseAdapter {
         ImageButton img_btn_Sua = itemView.findViewById(R.id.imgbtnSua);
         ImageButton img_btn_Xoa = itemView.findViewById(R.id.imgbtnXoa);
 
-
         img_btn_Xem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

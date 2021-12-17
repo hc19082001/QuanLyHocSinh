@@ -10,13 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuanLyHocSinh">
         <activity
+            android:name=".MainActivityMonHoc"
+            android:exported="false" />
+        <activity
             android:name=".MainActivityDANHSACH"
             android:exported="true" />
         <activity
-            android:name=".MainActivityTHEM"
+            android:name=".MainActivityTHEM_HocSinh"
             android:exported="true" />
         <activity
             android:name=".MainActivityMENU"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivityTHEM_MONHOC"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
