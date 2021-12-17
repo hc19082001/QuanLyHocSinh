@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFFFE6"
+    tools:context=".MainActivityTHEM_MONHOC">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="153dp"
+        android:text="THÊM MÔN HỌC"
+        android:textColor="@color/teal_700"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edt_tenADD_mh"
+        android:layout_width="335dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="38dp"
+        android:ems="10"
+        android:hint="Nhập tên môn học"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/edt_stcADD_mh"
+        android:layout_width="335dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="38dp"
+        android:ems="10"
+        android:hint="Nhập số tín chỉ"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_tenADD_mh"
+        tools:ignore="TouchTargetSizeCheck" />
+
+
+    <Button
+        android:id="@+id/btnLUUADD_mh"
+        android:layout_width="145dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="#009688"
+        android:text="LƯU"
+        app:layout_constraintStart_toEndOf="@+id/btnCLEARADD"
+        app:layout_constraintTop_toBottomOf="@+id/edt_stcADD_mh" />
+
+    <Button
+        android:id="@+id/btnCLEARADD"
+        android:layout_width="145dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="#009688"
+        android:text="CLEAR"
+        app:layout_constraintStart_toStartOf="@+id/edt_stcADD_mh"
+        app:layout_constraintTop_toBottomOf="@+id/edt_stcADD_mh" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-public class MainActivityTHEM extends AppCompatActivity {
+public class MainActivityTHEM_HocSinh extends AppCompatActivity {
 
     EditText edt_ten;
     EditText edt_lop;
@@ -39,7 +39,7 @@ public class MainActivityTHEM extends AppCompatActivity {
         btnClear = findViewById(R.id.btnCLEARADD);
         btnSave = findViewById(R.id.btnLUUADD);
 
-        hocSinhDAO = new HocSinhDAO(MainActivityTHEM.this);
+        hocSinhDAO = new HocSinhDAO(MainActivityTHEM_HocSinh.this);
         hocSinhDAO.open();
 
         btnSave.setOnClickListener(new View.OnClickListener() {
@@ -64,12 +64,12 @@ public class MainActivityTHEM extends AppCompatActivity {
                 long kq = hocSinhDAO.addRow(hocSinh);
 
                 if(kq>0){
-                    Toast.makeText(MainActivityTHEM.this, "THÊM THÀNH CÔNG", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivityTHEM.this,MainActivityDANHSACH.class);
+                    Toast.makeText(MainActivityTHEM_HocSinh.this, "THÊM THÀNH CÔNG", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivityTHEM_HocSinh.this,MainActivityDANHSACH.class);
                     startActivity(intent);
 
                 }else {
-                    Toast.makeText(MainActivityTHEM.this, "THÊM THẤT BẠI", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivityTHEM_HocSinh.this, "THÊM THẤT BẠI", Toast.LENGTH_SHORT).show();
                 }
             }
         });

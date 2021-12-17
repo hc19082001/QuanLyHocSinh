@@ -37,4 +37,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
+    <Button
+        android:id="@+id/btn_MonHoc"
+        android:layout_width="179dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="32dp"
+        android:text="QUẢN LÝ MÔN HỌC"
+        app:layout_constraintStart_toStartOf="@+id/btnDANHSACH"
+        app:layout_constraintTop_toBottomOf="@+id/btnDANHSACH" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
