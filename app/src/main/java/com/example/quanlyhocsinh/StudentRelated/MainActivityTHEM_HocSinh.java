@@ -5,18 +5,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.quanlyhocsinh.ClassRelated.Lop;
+import com.example.quanlyhocsinh.ClassRelated.LopDAO;
 import com.example.quanlyhocsinh.R;
+
+import java.util.ArrayList;
 
 public class MainActivityTHEM_HocSinh extends AppCompatActivity {
 
     EditText edt_ten;
-    EditText edt_lop;
+    Spinner spinner_addlop;
     EditText edt_ns;
     RadioGroup radioGroup_GT;
     RadioButton radioButton_Nam;
@@ -25,13 +32,15 @@ public class MainActivityTHEM_HocSinh extends AppCompatActivity {
     Button btnClear;
     Button btnSave;
     HocSinhDAO hocSinhDAO;
+    LopDAO lopDAO;
+    ArrayList<Lop> lopArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_them);
 
         edt_ten = findViewById(R.id.edt_tenADD);
-        edt_lop = findViewById(R.id.edt_lopADD);
+        spinner_addlop = findViewById(R.id.spinner_lop);
         edt_ns = findViewById(R.id.edt_namsinhADD);
         edt_diachi = findViewById(R.id.edt_diachi);
         radioGroup_GT = findViewById(R.id.radioGroupNamNu);
@@ -42,14 +51,26 @@ public class MainActivityTHEM_HocSinh extends AppCompatActivity {
         btnSave = findViewById(R.id.btnLUUADD);
 
         hocSinhDAO = new HocSinhDAO(MainActivityTHEM_HocSinh.this);
-        hocSinhDAO.open();
+        lopDAO = new LopDAO(MainActivityTHEM_HocSinh.this);
+        lopArrayList = lopDAO.getAll();
 
+        ArrayAdapter<Lop> lopArrayAdapter = new ArrayAdapter<Lop>(
+                this,
+                R.layout.support_simple_spinner_dropdown_item,
+                lopArrayList
+        );
+        spinner_addlop.setAdapter(lopArrayAdapter);
+
+
+        hocSinhDAO.open();
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 HocSinh hocSinh = new HocSinh();
                 String ten = edt_ten.getText().toString();
-                String lop = edt_lop.getText().toString();
+
+                Lop lop = (Lop) spinner_addlop.getSelectedItem();
+                int malop = lop.getMa_lop();
                 int ns = Integer.parseInt(edt_ns.getText().toString());
                 boolean gt = false;
                 if (radioGroup_GT.getCheckedRadioButtonId() == radioButton_Nam.getId()) {
@@ -57,24 +78,45 @@ public class MainActivityTHEM_HocSinh extends AppCompatActivity {
                 }
                 String dc = edt_diachi.getText().toString();
 
-                hocSinh.setTen_hs(ten);
-                hocSinh.setTen_hs(ten);
-                hocSinh.setLop_hs(lop);
-                hocSinh.setNs_hs(ns);
-                hocSinh.setGioitinh_hs(gt);
-                hocSinh.setDiachi_hs(dc);
-                long kq = hocSinhDAO.addRow(hocSinh);
+                Lop lop1 = layObjLop(malop);
+                int soluongHSLop = lop1.getSo_luong();
+                int soluongHSHienTai = hocSinhDAO.getSLHSmotLop(malop);
+                if (soluongHSHienTai >= soluongHSLop) {
+                    Toast.makeText(MainActivityTHEM_HocSinh.this, "SỐ LƯỢNG HỌC SINH LỚP HIỆN TẠI ĐÃ ĐỦ, MỜI CHỌN LỚP KHÁC", Toast.LENGTH_SHORT).show();
+                } else {
+                    hocSinh.setTen_hs(ten);
+                    hocSinh.setTen_hs(ten);
+                    hocSinh.setLop_hs(malop);
+                    hocSinh.setNs_hs(ns);
+                    hocSinh.setGioitinh_hs(gt);
+                    hocSinh.setDiachi_hs(dc);
+                    long kq = hocSinhDAO.addRow(hocSinh);
 
-                if(kq>0){
-                    Toast.makeText(MainActivityTHEM_HocSinh.this, "THÊM THÀNH CÔNG", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivityTHEM_HocSinh.this,MainActivityDANHSACH.class);
-                    startActivity(intent);
+                    if(kq>0){
+                        Toast.makeText(MainActivityTHEM_HocSinh.this, "THÊM THÀNH CÔNG", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivityTHEM_HocSinh.this,MainActivityDANHSACH.class);
+                        startActivity(intent);
 
-                }else {
-                    Toast.makeText(MainActivityTHEM_HocSinh.this, "THÊM THẤT BẠI", Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(MainActivityTHEM_HocSinh.this, "THÊM THẤT BẠI", Toast.LENGTH_SHORT).show();
+                    }
                 }
+
+
+
             }
         });
 
+    }
+
+    private Lop layObjLop(int malop) {
+
+        for (Lop x :
+                lopArrayList) {
+            if (x.getMa_lop() == malop) {
+                return x;
+            }
+        }
+        return null;
     }
 }

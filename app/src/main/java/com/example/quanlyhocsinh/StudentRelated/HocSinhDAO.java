@@ -28,7 +28,9 @@ public class HocSinhDAO {
     //------------------------------------------
 
     public long addRow(HocSinh hocSinh){
+
         ContentValues values = new ContentValues();
+
         values.put(HocSinh.COL_TEN,hocSinh.getTen_hs());
         values.put(HocSinh.COL_LOP,hocSinh.getLop_hs());
         values.put(HocSinh.COL_NAMSINH,hocSinh.getNs_hs());
@@ -59,6 +61,7 @@ public class HocSinhDAO {
         values.put(HocSinh.COL_LOP,hocSinh.getLop_hs());
         values.put(HocSinh.COL_NAMSINH,hocSinh.getNs_hs());
         values.put(HocSinh.COL_DIACHI,hocSinh.getDiachi_hs());
+
         if (hocSinh.isGioitinh_hs()) {
             values.put(HocSinh.COL_GIOITINH,1);
         } else {
@@ -82,7 +85,7 @@ public class HocSinhDAO {
                 HocSinh hocSinh = new HocSinh();
                 hocSinh.setId_hs(cursor.getInt(0));
                 hocSinh.setTen_hs(cursor.getString(1));
-                hocSinh.setLop_hs(cursor.getString(2));
+                hocSinh.setLop_hs(cursor.getInt(2));
                 hocSinh.setNs_hs(cursor.getInt(3));
 
                 if (cursor.getInt(4) == 1) {
@@ -97,5 +100,15 @@ public class HocSinhDAO {
             }
         }
         return listHocSinhs;
+    }
+
+    public int getSLHSmotLop(int malop) {
+        open();
+        int sl = 0;
+        String[] selectionArg = new String[] {malop + ""};
+        String query = "SELECT * FROM tb_hocsinh INNER JOIN Tb_Lop ON Tb_Lop.ma_lop = tb_hocsinh.lop_hs WHERE Tb_Lop.ma_lop = ?";
+        Cursor cursor =  database.rawQuery(query, selectionArg);
+        sl = cursor.getCount();
+        return sl;
     }
 }

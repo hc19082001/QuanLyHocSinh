@@ -47,4 +47,10 @@ public class Lop {
     public void setSo_luong(int so_luong) {
         this.so_luong = so_luong;
     }
+
+    @Override
+    public String toString() {
+        return this.ten_lop;
+    }
+
 }

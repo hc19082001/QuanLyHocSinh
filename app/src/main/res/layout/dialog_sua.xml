@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFEB8"
@@ -31,15 +32,6 @@
         android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/edtLopSUA"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Nhập lớp"
-        android:inputType="textPersonName"
-        android:minHeight="48dp" />
-
-    <EditText
         android:id="@+id/edtNSSUA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,8 +41,32 @@
         android:minHeight="48dp" />
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="189dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Chọn lớp"
+            android:textSize="20dp" />
+
+        <Spinner
+            android:id="@+id/spinner_sualop"
+            android:layout_width="342dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:minHeight="48dp"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
@@ -72,7 +88,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Nam" />
+                android:text="Nam"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <RadioButton
                 android:id="@+id/rbtn_Nu_Update"
@@ -80,7 +97,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_weight="1"
-                android:text="Nữ" />
+                android:text="Nữ"
+                tools:ignore="TouchTargetSizeCheck" />
         </RadioGroup>
     </LinearLayout>
 
