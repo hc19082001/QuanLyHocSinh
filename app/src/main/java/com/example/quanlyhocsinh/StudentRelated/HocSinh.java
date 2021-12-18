@@ -4,7 +4,7 @@ public class HocSinh {
 
     private int id_hs;
     private String ten_hs;
-    private String lop_hs;
+    private int lop_hs;        // Foreign Key
     private int ns_hs;
     private boolean gioitinh_hs;
     private String diachi_hs;
@@ -17,8 +17,6 @@ public class HocSinh {
     public static final String COL_NAMSINH = "ns_hs";
     public static final String COL_GIOITINH = "gioitinh_hs";
     public static final String COL_DIACHI = "diachi_hs";
-
-
 
     public int getId_hs() {
         return id_hs;
@@ -36,11 +34,11 @@ public class HocSinh {
         this.ten_hs = ten_hs;
     }
 
-    public String getLop_hs() {
+    public int getLop_hs() {
         return lop_hs;
     }
 
-    public void setLop_hs(String lop_hs) {
+    public void setLop_hs(int lop_hs) {
         this.lop_hs = lop_hs;
     }
 
@@ -67,6 +65,5 @@ public class HocSinh {
     public void setDiachi_hs(String diachi_hs) {
         this.diachi_hs = diachi_hs;
     }
-
 
 }

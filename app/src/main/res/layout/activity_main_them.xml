@@ -38,33 +38,18 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/edt_lopADD"
-        android:layout_width="335dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="38dp"
-        android:ems="10"
-        android:hint="Nhập lớp"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_tenADD"
-        tools:ignore="TouchTargetSizeCheck" />
-
-    <EditText
         android:id="@+id/edt_namsinhADD"
         android:layout_width="335dp"
         android:layout_height="42dp"
         android:layout_marginStart="38dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="38dp"
         android:ems="10"
         android:hint="Nhập năm sinh"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_lopADD"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_lop"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
@@ -135,4 +120,24 @@
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupNamNu" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Chọn lớp"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="@+id/edt_tenADD"
+        app:layout_constraintTop_toBottomOf="@+id/edt_tenADD" />
+
+    <Spinner
+        android:id="@+id/spinner_lop"
+        android:layout_width="139dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/edt_tenADD"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

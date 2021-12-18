@@ -10,12 +10,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.example.quanlyhocsinh.ClassRelated.LopDAO;
 import com.example.quanlyhocsinh.R;
 
 public class MainActivityDANHSACH extends AppCompatActivity {
     
     ListView lv_danhsach;
     HocSinhDAO hocSinhDAO;
+    LopDAO lopDAO;
     HocSinhAdapter hocSinhAdapter;
     Toolbar toolbar;
 
@@ -28,9 +30,10 @@ public class MainActivityDANHSACH extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
 
         hocSinhDAO = new HocSinhDAO(MainActivityDANHSACH.this);
+        lopDAO = new LopDAO(MainActivityDANHSACH.this);
         hocSinhDAO.open();
 
-        hocSinhAdapter = new HocSinhAdapter(hocSinhDAO.getAll(),hocSinhDAO);
+        hocSinhAdapter = new HocSinhAdapter(hocSinhDAO.getAll(),hocSinhDAO, lopDAO);
         lv_danhsach.setAdapter(hocSinhAdapter);
 
         setSupportActionBar(toolbar);

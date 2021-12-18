@@ -13,10 +13,10 @@ import com.example.quanlyhocsinh.SubjectRelated.MainActivityMonHoc;
 
 public class MainActivityMENU extends AppCompatActivity {
 
-
     Button btnDanhsach;
     Button btnMH;
     Button btnLOP;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

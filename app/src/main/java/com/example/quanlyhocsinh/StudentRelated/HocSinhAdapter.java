@@ -4,8 +4,11 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.security.ConfirmationNotAvailableException;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,9 +16,12 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.quanlyhocsinh.ClassRelated.Lop;
+import com.example.quanlyhocsinh.ClassRelated.LopDAO;
 import com.example.quanlyhocsinh.R;
 
 import java.util.ArrayList;
@@ -24,10 +30,15 @@ public class HocSinhAdapter extends BaseAdapter {
 
     ArrayList<HocSinh> listHocSinhs;
     HocSinhDAO hocSinhDAO;
+    LopDAO lopDAO;
+    ArrayList<Lop> lopArrayList ;
 
-    public HocSinhAdapter(ArrayList<HocSinh> listHocSinhs, HocSinhDAO hocSinhDAO) {
+    public HocSinhAdapter(ArrayList<HocSinh> listHocSinhs, HocSinhDAO hocSinhDAO, LopDAO lopDAO) {
+        this.lopDAO = lopDAO;
         this.listHocSinhs = listHocSinhs;
         this.hocSinhDAO = hocSinhDAO;
+        this.lopDAO = lopDAO;
+        this.lopArrayList = lopDAO.getAll();
     }
 
     @Override
@@ -74,10 +85,11 @@ public class HocSinhAdapter extends BaseAdapter {
                 if (hocSinh.isGioitinh_hs()) {
                     gt = "Nam";
                 }
-                builder.setIcon(android.R.drawable.ic_input_add);
+                builder.setIcon(R.drawable.ic_baseline_remove_red_eye_24);
+                int vitript = layViTriPTLop(hocSinh.getLop_hs(), lopArrayList);
                 builder.setMessage("ID : "+hocSinh.getId_hs()+
                         "\nTên : "+hocSinh.getTen_hs()+
-                        "\nLớp : "+hocSinh.getLop_hs()+
+                        "\nLớp : "+lopArrayList.get(vitript).getTen_lop()+
                         "\nNăm sinh : "+hocSinh.getNs_hs()+
                         "\ngiới tính : "+ gt +
                         "\nĐịa chỉ : "+hocSinh.getDiachi_hs());
@@ -97,6 +109,7 @@ public class HocSinhAdapter extends BaseAdapter {
                 showDialogUpdate(viewGroup.getContext(),position ,hocSinh);
             }
         });
+
         img_btn_Xoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -129,9 +142,11 @@ public class HocSinhAdapter extends BaseAdapter {
             }
         });
 
-        tv_id.setText(hocSinh.getId_hs()+"");
+        tv_id.setText(hocSinh.getId_hs()+ "");
         tv_ten.setText(hocSinh.getTen_hs());
-        tv_lop.setText(hocSinh.getLop_hs());
+        int vitri = layViTriPTLop(hocSinh.getLop_hs(), lopArrayList);
+        tv_lop.setText(lopArrayList.get(vitri).getTen_lop());
+
         if (hocSinh.isGioitinh_hs()) {
             img_GT.setImageResource(R.drawable.ic_baseline_boy_24);
         } else {
@@ -149,7 +164,7 @@ public class HocSinhAdapter extends BaseAdapter {
 
         TextView tv_id = dialog.findViewById(R.id.tvIDSUA);
         EditText edt_ten = dialog.findViewById(R.id.edtTenSUA);
-        EditText edt_lop = dialog.findViewById(R.id.edtLopSUA);
+        Spinner sp_lop = dialog.findViewById(R.id.spinner_sualop);
         EditText edt_NS = dialog.findViewById(R.id.edtNSSUA);
         EditText edt_diachi = dialog.findViewById(R.id.edtDiaChiSUA);
         Button btnUpdate = dialog.findViewById(R.id.btnCapNhatSUA);
@@ -157,9 +172,15 @@ public class HocSinhAdapter extends BaseAdapter {
         RadioButton radioButtonNu = dialog.findViewById(R.id.rbtn_Nu_Update);
         RadioGroup radioGroup = dialog.findViewById(R.id.radioGroup_Update);
 
+        ArrayAdapter<Lop> lopArrayAdapter = new ArrayAdapter<>(
+                context,
+                R.layout.support_simple_spinner_dropdown_item,
+                lopArrayList
+        );
+        sp_lop.setAdapter(lopArrayAdapter);
+
         tv_id.setText(hocSinh.getId_hs()+"");
         edt_ten.setText(hocSinh.getTen_hs());
-        edt_lop.setText(hocSinh.getLop_hs());
         edt_NS.setText(hocSinh.getNs_hs()+"");
         if (hocSinh.isGioitinh_hs()) {
             radioButtonNam.setChecked(true);
@@ -168,12 +189,15 @@ public class HocSinhAdapter extends BaseAdapter {
         }
         edt_diachi.setText(hocSinh.getDiachi_hs());
 
+        int position = layViTriPTLop(hocSinh.getLop_hs(), lopArrayList);
+        sp_lop.setSelection(position);
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String ten = edt_ten.getText().toString();
-                String lop = edt_lop.getText().toString();
+                Lop lop = (Lop) sp_lop.getSelectedItem();
+                int malop = lop.getMa_lop();
                 int ns = Integer.parseInt(edt_NS.getText().toString());
                 boolean gt = false;
                 if (radioGroup.getCheckedRadioButtonId() == radioButtonNam.getId()) {
@@ -182,7 +206,7 @@ public class HocSinhAdapter extends BaseAdapter {
                 String diachi = edt_diachi.getText().toString();
 
                 hocSinh.setTen_hs(ten);
-                hocSinh.setLop_hs(lop);
+                hocSinh.setLop_hs(malop);
                 hocSinh.setNs_hs(ns);
                 hocSinh.setGioitinh_hs(gt);
                 hocSinh.setDiachi_hs(diachi);
@@ -198,6 +222,17 @@ public class HocSinhAdapter extends BaseAdapter {
             }
         });
         dialog.show();
+    }
+
+
+    private int layViTriPTLop(int malop, ArrayList<Lop> lops) {
+
+        for (Lop x: lops) {
+            if (x.getMa_lop() == malop) {
+                return lops.indexOf(x);
+            }
+        }
+        return -1;
     }
 
 
