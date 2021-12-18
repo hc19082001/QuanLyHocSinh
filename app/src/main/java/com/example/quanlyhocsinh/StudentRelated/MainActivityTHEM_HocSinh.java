@@ -1,4 +1,4 @@
-package com.example.quanlyhocsinh;
+package com.example.quanlyhocsinh.StudentRelated;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import com.example.quanlyhocsinh.R;
 
 public class MainActivityTHEM_HocSinh extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.quanlyhocsinh;
+package com.example.quanlyhocsinh.SubjectRelated;
 
 public class MonHoc {
 

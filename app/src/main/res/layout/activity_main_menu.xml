@@ -46,4 +46,15 @@
         app:layout_constraintStart_toStartOf="@+id/btnDANHSACH"
         app:layout_constraintTop_toBottomOf="@+id/btnDANHSACH" />
 
+    <Button
+        android:id="@+id/btn_LOP"
+        android:layout_width="178dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/purple_200"
+        android:text="Quản lý lớp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_MonHoc"
+        app:layout_constraintStart_toStartOf="@+id/btn_MonHoc"
+        app:layout_constraintTop_toBottomOf="@+id/btn_MonHoc" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

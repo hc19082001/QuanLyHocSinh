@@ -1,4 +1,4 @@
-package com.example.quanlyhocsinh;
+package com.example.quanlyhocsinh.ClassRelated;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,29 +6,36 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.FloatProperty;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
-public class MainActivityMonHoc extends AppCompatActivity {
+import com.example.quanlyhocsinh.R;
+import com.example.quanlyhocsinh.SubjectRelated.MainActivityMonHoc;
+import com.example.quanlyhocsinh.SubjectRelated.MainActivityTHEM_MONHOC;
+import com.example.quanlyhocsinh.SubjectRelated.MonHocAdapter;
+import com.example.quanlyhocsinh.SubjectRelated.MonHocDAO;
+
+public class MainActivityLop extends AppCompatActivity {
 
     ListView lv_danhsach;
-    MonHocDAO monHocDAO;
-    MonHocAdapter monHocAdapter;
+    LopDAO lopDAO;
+    LopAdapter lopAdapter;
     Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_mon_hoc);
+        setContentView(R.layout.activity_main_lop);
 
-        lv_danhsach = findViewById(R.id.lv_danhsach_mh);
-        toolbar = findViewById(R.id.toolbar_mh);
+        lv_danhsach = findViewById(R.id.lv_danhsach_lop);
+        toolbar = findViewById(R.id.toolbar_lop);
 
-        monHocDAO = new MonHocDAO(MainActivityMonHoc.this);
+        lopDAO = new LopDAO(MainActivityLop.this);
 
-        monHocAdapter = new MonHocAdapter(monHocDAO.getAll(), monHocDAO);
-        lv_danhsach.setAdapter(monHocAdapter);
+        lopAdapter = new LopAdapter( lopDAO.getAll(), lopDAO) ;
+        lv_danhsach.setAdapter(lopAdapter);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -46,7 +53,7 @@ public class MainActivityMonHoc extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.addIT:
-                Intent intent = new Intent(MainActivityMonHoc.this, MainActivityTHEM_MONHOC.class);
+                Intent intent = new Intent(MainActivityLop.this, MainActivityTHEM_LOP.class);
                 startActivity(intent);
                 break;
             default:
@@ -55,6 +62,4 @@ public class MainActivityMonHoc extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 }

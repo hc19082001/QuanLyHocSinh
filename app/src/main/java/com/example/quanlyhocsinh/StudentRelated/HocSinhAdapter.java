@@ -1,4 +1,4 @@
-package com.example.quanlyhocsinh;
+package com.example.quanlyhocsinh.StudentRelated;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -15,6 +15,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.quanlyhocsinh.R;
 
 import java.util.ArrayList;
 
@@ -49,7 +51,7 @@ public class HocSinhAdapter extends BaseAdapter {
         View itemView;
 
         if(view==null){
-            itemView = View.inflate(viewGroup.getContext(),R.layout.item_listview_hocsinh,null);
+            itemView = View.inflate(viewGroup.getContext(), R.layout.item_listview_hocsinh,null);
         }else
             itemView = view;
 

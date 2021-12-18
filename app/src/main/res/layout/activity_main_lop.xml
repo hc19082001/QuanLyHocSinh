@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B5AB79"
-    tools:context=".SubjectRelated.MainActivityMonHoc">
+    tools:context=".ClassRelated.MainActivityLop">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_mh"
+        android:id="@+id/toolbar_lop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorSecondaryVariant"
@@ -16,7 +16,7 @@
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="QUẢN LÝ MÔN HỌC"/>
+        app:title="QUẢN LÝ LỚP"/>
 
     <TextView
         android:id="@+id/textView4"
@@ -25,7 +25,7 @@
         android:layout_marginStart="171dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="182dp"
-        android:text="DANH SÁCH MÔN HỌC"
+        android:text="DANH SÁCH LỚP"
         android:textColor="@color/purple_500"
         android:textSize="30dp"
         android:textStyle="bold"
@@ -35,7 +35,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/lv_danhsach_mh"
+        android:id="@+id/lv_danhsach_lop"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"
