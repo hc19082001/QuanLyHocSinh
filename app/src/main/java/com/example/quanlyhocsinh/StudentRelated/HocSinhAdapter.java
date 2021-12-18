@@ -205,23 +205,41 @@ public class HocSinhAdapter extends BaseAdapter {
                 }
                 String diachi = edt_diachi.getText().toString();
 
-                hocSinh.setTen_hs(ten);
-                hocSinh.setLop_hs(malop);
-                hocSinh.setNs_hs(ns);
-                hocSinh.setGioitinh_hs(gt);
-                hocSinh.setDiachi_hs(diachi);
-                int kq = hocSinhDAO.updateRow(hocSinh);
-                if(kq>0){
-                    listHocSinhs.set(vitri,hocSinh);
-                    notifyDataSetChanged();
-                    Toast.makeText(context, "SỬA THÀNH CÔNG", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(context, "SỬA THẤT BẠI", Toast.LENGTH_SHORT).show();
+                int slhs = getSoLuongHS(malop);
+                int slhs_ht = hocSinhDAO.getSLHSmotLop(malop);
+
+                if (slhs_ht >= slhs) {
+                    Toast.makeText(context, "SỐ LƯỢNG HS TRONG LỚP ĐÃ CHỌN ĐÃ ĐỦ, MỜI CHỌN LỚP KHÁC!", Toast.LENGTH_SHORT).show();
+                } else  {
+                    hocSinh.setTen_hs(ten);
+                    hocSinh.setLop_hs(malop);
+                    hocSinh.setNs_hs(ns);
+                    hocSinh.setGioitinh_hs(gt);
+                    hocSinh.setDiachi_hs(diachi);
+                    int kq = hocSinhDAO.updateRow(hocSinh);
+                    if(kq>0){
+                        listHocSinhs.set(vitri,hocSinh);
+                        notifyDataSetChanged();
+                        Toast.makeText(context, "SỬA THÀNH CÔNG", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(context, "SỬA THẤT BẠI", Toast.LENGTH_SHORT).show();
+                    }
+                    dialog.dismiss();
                 }
-                dialog.dismiss();
+
             }
         });
         dialog.show();
+    }
+
+    private int getSoLuongHS(int malop) {
+        for (Lop x :
+                lopArrayList) {
+            if (x.getMa_lop() == malop) {
+                return x.getSo_luong();
+            }
+            }
+        return -1;
     }
 
 

@@ -18,7 +18,6 @@ public class DbHocSinh extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
        String sql_hocsinh = String.format( "CREATE TABLE %s ( " +
                "%s INTEGER PRIMARY KEY AUTOINCREMENT," +
                "%s TEXT NOT NULL," +
