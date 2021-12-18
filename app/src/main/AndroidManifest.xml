@@ -10,19 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuanLyHocSinh">
         <activity
-            android:name=".MainActivityMonHoc"
+            android:name=".ClassRelated.MainActivityTHEM_LOP"
             android:exported="false" />
         <activity
-            android:name=".MainActivityDANHSACH"
+            android:name=".ClassRelated.MainActivityLop"
+            android:exported="false" />
+        <activity
+            android:name=".SubjectRelated.MainActivityMonHoc"
+            android:exported="false" />
+        <activity
+            android:name=".StudentRelated.MainActivityDANHSACH"
             android:exported="true" />
         <activity
-            android:name=".MainActivityTHEM_HocSinh"
+            android:name=".StudentRelated.MainActivityTHEM_HocSinh"
             android:exported="true" />
         <activity
             android:name=".MainActivityMENU"
             android:exported="true" />
         <activity
-            android:name=".MainActivityTHEM_MONHOC"
+            android:name=".SubjectRelated.MainActivityTHEM_MONHOC"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

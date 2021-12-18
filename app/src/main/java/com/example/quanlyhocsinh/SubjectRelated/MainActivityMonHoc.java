@@ -1,4 +1,4 @@
-package com.example.quanlyhocsinh;
+package com.example.quanlyhocsinh.SubjectRelated;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,26 +10,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
-public class MainActivityDANHSACH extends AppCompatActivity {
-    
+import com.example.quanlyhocsinh.R;
+
+public class MainActivityMonHoc extends AppCompatActivity {
+
     ListView lv_danhsach;
-    HocSinhDAO hocSinhDAO;
-    HocSinhAdapter hocSinhAdapter;
+    MonHocDAO monHocDAO;
+    MonHocAdapter monHocAdapter;
     Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_danhsach);
+        setContentView(R.layout.activity_main_mon_hoc);
 
-        lv_danhsach = findViewById(R.id.lv_danhsach);
-        toolbar = findViewById(R.id.toolbar);
+        lv_danhsach = findViewById(R.id.lv_danhsach_mh);
+        toolbar = findViewById(R.id.toolbar_mh);
 
-        hocSinhDAO = new HocSinhDAO(MainActivityDANHSACH.this);
-        hocSinhDAO.open();
+        monHocDAO = new MonHocDAO(MainActivityMonHoc.this);
 
-        hocSinhAdapter = new HocSinhAdapter(hocSinhDAO.getAll(),hocSinhDAO);
-        lv_danhsach.setAdapter(hocSinhAdapter);
+        monHocAdapter = new MonHocAdapter(monHocDAO.getAll(), monHocDAO);
+        lv_danhsach.setAdapter(monHocAdapter);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -47,7 +48,7 @@ public class MainActivityDANHSACH extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.addIT:
-                Intent intent = new Intent(MainActivityDANHSACH.this, MainActivityTHEM_HocSinh.class);
+                Intent intent = new Intent(MainActivityMonHoc.this, MainActivityTHEM_MONHOC.class);
                 startActivity(intent);
                 break;
             default:
@@ -56,4 +57,6 @@ public class MainActivityDANHSACH extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }

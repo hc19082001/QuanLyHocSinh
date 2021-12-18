@@ -34,10 +34,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="ID:" />
+                        android:text="MÃ LỚP:" />
 
                     <TextView
-                        android:id="@+id/tv_id_mh"
+                        android:id="@+id/tv_malop"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -55,10 +55,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="TÊN MÔN HỌC:" />
+                        android:text="TÊN LỚP:" />
 
                     <TextView
-                        android:id="@+id/tv_ten_mh"
+                        android:id="@+id/tv_ten_lop"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -77,10 +77,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="SỐ TÍN CHỈ:" />
+                        android:text="SỐ LƯỢNG:" />
 
                     <TextView
-                        android:id="@+id/tv_stc"
+                        android:id="@+id/tv_sl"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -96,7 +96,7 @@
             </LinearLayout>
 
             <ImageButton
-                android:id="@+id/imgbtnSua_mh"
+                android:id="@+id/imgbtnSua_lop"
                 android:layout_width="wrap_content"
                 android:layout_height="38dp"
                 android:layout_marginTop="7dp"
@@ -106,7 +106,7 @@
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <ImageButton
-                android:id="@+id/imgbtnXoa_mh"
+                android:id="@+id/imgbtnXoa_lop"
                 android:layout_width="wrap_content"
                 android:layout_height="38dp"
                 android:layout_marginTop="7dp"

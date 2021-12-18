@@ -1,4 +1,4 @@
-package com.example.quanlyhocsinh;
+package com.example.quanlyhocsinh.ClassRelated;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -10,37 +10,37 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.quanlyhocsinh.R;
+import com.example.quanlyhocsinh.SubjectRelated.MonHoc;
+
 import java.util.ArrayList;
 
-public class MonHocAdapter extends BaseAdapter {
+public class LopAdapter extends BaseAdapter {
 
-    ArrayList<MonHoc> monHocs;
-    MonHocDAO monHocDAO;
+    ArrayList<Lop> lopArrayList;
+    LopDAO lopDAO;
 
-    public MonHocAdapter(ArrayList<MonHoc> monHocs, MonHocDAO monHocDAO) {
-        this.monHocs = monHocs;
-        this.monHocDAO = monHocDAO;
+    public LopAdapter(ArrayList<Lop> lopArrayList, LopDAO lopDAO) {
+        this.lopArrayList = lopArrayList;
+        this.lopDAO = lopDAO;
     }
 
     @Override
     public int getCount() {
-        return monHocs.size();
+        return lopArrayList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return monHocs.get(position);
+        return lopArrayList.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return monHocs.get(position).getMa_mh();
+        return lopArrayList.get(position).getMa_lop();
     }
 
     @Override
@@ -49,23 +49,23 @@ public class MonHocAdapter extends BaseAdapter {
         View itemView;
 
         if(convertView==null){
-            itemView = View.inflate(parent.getContext(),R.layout.item_listview_monhoc,null);
+            itemView = View.inflate(parent.getContext(), R.layout.item_listview_lop,null);
         }else
             itemView = convertView;
 
-        MonHoc monHoc = (MonHoc) getItem(position);
+        Lop lop = lopArrayList.get(position);
 
-        TextView tv_id = itemView.findViewById(R.id.tv_id_mh);
-        TextView tv_ten = itemView.findViewById(R.id.tv_ten_mh);
-        TextView tv_lop = itemView.findViewById(R.id.tv_stc);
+        TextView tv_id = itemView.findViewById(R.id.tv_malop);
+        TextView tv_ten = itemView.findViewById(R.id.tv_ten_lop);
+        TextView tv_lop = itemView.findViewById(R.id.tv_sl);
 
-        ImageButton img_btn_Sua = itemView.findViewById(R.id.imgbtnSua_mh);
-        ImageButton img_btn_Xoa = itemView.findViewById(R.id.imgbtnXoa_mh);
+        ImageButton img_btn_Sua = itemView.findViewById(R.id.imgbtnSua_lop);
+        ImageButton img_btn_Xoa = itemView.findViewById(R.id.imgbtnXoa_lop);
 
         img_btn_Sua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialogUpdate(parent.getContext(),position ,monHoc);
+                showDialogUpdate(parent.getContext(),position ,lop);
             }
         });
 
@@ -75,13 +75,13 @@ public class MonHocAdapter extends BaseAdapter {
                 AlertDialog.Builder builder = new AlertDialog.Builder(parent.getContext());
                 builder.setTitle("XÓA THÔNG TIN");
                 builder.setIcon(android.R.drawable.ic_delete);
-                builder.setMessage("Bạn có muốn xóa : "+ monHoc.getTen_mh());
+                builder.setMessage("Bạn có muốn xóa lớp : "+ lop.getTen_lop());
                 builder.setPositiveButton("CÓ", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        int kq = monHocDAO.deleteRow(monHoc);
+                        int kq = lopDAO.deleteRow(lop);
                         if(kq>0){
-                            monHocs.remove(position);
+                            lopArrayList.remove(position);
                             notifyDataSetChanged();
                             Toast.makeText(parent.getContext(), "XÓA THÀNH CÔNG", Toast.LENGTH_SHORT).show();
                         }else{
@@ -101,41 +101,39 @@ public class MonHocAdapter extends BaseAdapter {
             }
         });
 
-
-
-        tv_id.setText(monHoc.getMa_mh()+"");
-        tv_ten.setText(monHoc.getTen_mh());
-        tv_lop.setText(monHoc.getSo_tinchi()+"");
+        tv_id.setText(lop.getMa_lop()+"");
+        tv_ten.setText(lop.getTen_lop());
+        tv_lop.setText(lop.getSo_luong()+"");
 
         return itemView;
     }
 
-    public void showDialogUpdate(Context context, int vitri, MonHoc monHoc){
+    public void showDialogUpdate(Context context, int vitri, Lop lop){
 
         final Dialog dialog = new Dialog(context,R.style.Theme_AppCompat_Light_Dialog_Alert);
-        dialog.setContentView(R.layout.dialog_sua_mh);
+        dialog.setContentView(R.layout.dialog_sua_lop);
 
-        TextView tv_id = dialog.findViewById(R.id.tvIDSUA_mh);
-        EditText edt_ten = dialog.findViewById(R.id.edtTenSUA_mh);
-        EditText edt_stc = dialog.findViewById(R.id.edtSoTCSUA);
-        Button btnUpdate = dialog.findViewById(R.id.btnCapNhatSUA_mh);
+        TextView tv_id = dialog.findViewById(R.id.tvIDSUA_lop);
+        EditText edt_ten = dialog.findViewById(R.id.edtTenSUA_lop);
+        EditText edt_sl = dialog.findViewById(R.id.edtSoLuongSUA);
+        Button btnUpdate = dialog.findViewById(R.id.btnCapNhatSUA_lop);
 
-        tv_id.setText(monHoc.getMa_mh()+"");
-        edt_ten.setText(monHoc.getTen_mh());
-        edt_stc.setText(monHoc.getSo_tinchi()+"");
+        tv_id.setText(lop.getMa_lop()+"");
+        edt_ten.setText(lop.getTen_lop());
+        edt_sl.setText(lop.getSo_luong()+"");
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String ten = edt_ten.getText().toString();
-                int stc = Integer.parseInt(edt_stc.getText().toString()) ;
+                int slg = Integer.parseInt(edt_sl.getText().toString()) ;
 
-                monHoc.setTen_mh(ten);
-                monHoc.setSo_tinchi(stc);
+                lop.setTen_lop(ten);
+                lop.setSo_luong(slg);
 
-                int kq = monHocDAO.updateRow(monHoc);
+                int kq = lopDAO.updateRow(lop);
                 if(kq>0){
-                    monHocs.set(vitri,monHoc);
+                    lopArrayList.set(vitri,lop);
                     notifyDataSetChanged();
                     Toast.makeText(context, "SỬA THÀNH CÔNG", Toast.LENGTH_SHORT).show();
                 }else{
