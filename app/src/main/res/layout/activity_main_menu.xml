@@ -43,6 +43,7 @@
         android:layout_height="51dp"
         android:layout_marginTop="32dp"
         android:text="QUẢN LÝ MÔN HỌC"
+        app:layout_constraintEnd_toEndOf="@+id/btnDANHSACH"
         app:layout_constraintStart_toStartOf="@+id/btnDANHSACH"
         app:layout_constraintTop_toBottomOf="@+id/btnDANHSACH" />
 
@@ -56,5 +57,16 @@
         app:layout_constraintEnd_toEndOf="@+id/btn_MonHoc"
         app:layout_constraintStart_toStartOf="@+id/btn_MonHoc"
         app:layout_constraintTop_toBottomOf="@+id/btn_MonHoc" />
+
+    <Button
+        android:id="@+id/btn_QLD"
+        android:layout_width="179dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="32dp"
+        android:text="QUẢN LÝ ĐIỂM "
+        app:layout_constraintEnd_toEndOf="@+id/btn_LOP"
+        app:layout_constraintStart_toStartOf="@+id/btn_LOP"
+        android:backgroundTint="@color/cardview_shadow_start_color"
+        app:layout_constraintTop_toBottomOf="@+id/btn_LOP" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

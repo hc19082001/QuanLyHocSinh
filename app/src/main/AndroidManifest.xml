@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuanLyHocSinh">
         <activity
+            android:name=".GradeRelated.MainActivityTHEMDIEM"
+            android:exported="false" />
+        <activity
+            android:name=".GradeRelated.MainActivityTTHS"
+            android:exported="false" />
+        <activity
+            android:name=".GradeRelated.MainActivityDiem"
+            android:exported="false" />
+        <activity
             android:name=".ClassRelated.MainActivityTHEM_LOP"
             android:exported="false" />
         <activity

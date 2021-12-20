@@ -5,8 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.nio.file.LinkOption;
 import java.util.ArrayList;
 
+import com.example.quanlyhocsinh.ClassRelated.Lop;
 import com.example.quanlyhocsinh.Database.DbHocSinh;
 
 public class HocSinhDAO {
@@ -75,7 +77,8 @@ public class HocSinhDAO {
     }
 
     public ArrayList<HocSinh> getAll(){
-        ArrayList<HocSinh> listHocSinhs = new ArrayList<>();
+        open();
+        ArrayList<HocSinh> listHocSinhs = new ArrayList<HocSinh>();
 
         String [] ds_cot = new String[]{"*"};
 
@@ -109,6 +112,53 @@ public class HocSinhDAO {
         String query = "SELECT * FROM tb_hocsinh INNER JOIN Tb_Lop ON Tb_Lop.ma_lop = tb_hocsinh.lop_hs WHERE Tb_Lop.ma_lop = ?";
         Cursor cursor =  database.rawQuery(query, selectionArg);
         sl = cursor.getCount();
+        cursor.moveToLast();
         return sl;
     }
+
+    public String getTenLop(int malop) {
+        open();
+        String lop = null;
+        String[] selectionArg = new String[] {malop + ""};
+        String query = "SELECT Tb_Lop.ten_lop FROM tb_hocsinh INNER JOIN Tb_Lop ON Tb_Lop.ma_lop = tb_hocsinh.lop_hs WHERE Tb_Lop.ma_lop = ?";
+        Cursor cursor =  database.rawQuery(query, selectionArg);
+        cursor.moveToFirst();
+        lop = cursor.getString(0);
+        cursor.moveToLast();
+        return lop;
+    }
+
+    public ArrayList<HocSinh> getStudentAtClass(int malop) {
+
+        ArrayList<HocSinh> listHocSinhs = new ArrayList<>();
+
+        String [] ds_cot = new String[]{"*"};
+        String selection = HocSinh.COL_LOP + " = ? ";
+        String[] Args = new String[] {malop+""};
+
+        Cursor cursor = database.query(HocSinh.TB_NAME,ds_cot,selection,Args,null,null,null);
+        if(cursor.moveToFirst()){
+            while (!cursor.isAfterLast()){
+                HocSinh hocSinh = new HocSinh();
+                hocSinh.setId_hs(cursor.getInt(0));
+                hocSinh.setTen_hs(cursor.getString(1));
+                hocSinh.setLop_hs(cursor.getInt(2));
+                hocSinh.setNs_hs(cursor.getInt(3));
+
+                if (cursor.getInt(4) == 1) {
+                    hocSinh.setGioitinh_hs(true);
+                } else {
+                    hocSinh.setGioitinh_hs(false);
+                }
+                hocSinh.setDiachi_hs(cursor.getString(5));
+
+                listHocSinhs.add(hocSinh);
+                cursor.moveToNext();
+            }
+        }
+        return listHocSinhs;
+    }
+
+
+
 }

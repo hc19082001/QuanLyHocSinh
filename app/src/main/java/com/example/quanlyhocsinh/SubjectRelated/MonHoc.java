@@ -48,4 +48,9 @@ public class MonHoc {
     public void setSo_tinchi(int so_tinchi) {
         this.so_tinchi = so_tinchi;
     }
+
+    @Override
+    public String toString() {
+        return this.ten_mh;
+    }
 }

@@ -82,4 +82,30 @@ public class MonHocDAO {
         close();
         return monHocs;
     }
+
+    public ArrayList<MonHoc> getMonHocOf(int mahs) {
+        open();
+
+        ArrayList<MonHoc> monHocs = new ArrayList<MonHoc>();
+
+        String sql = "SELECT tb_Monhoc.ma_mh, tb_Monhoc.ten_mh, tb_Monhoc.so_tinchi\n" +
+                     "FROM tb_hocsinh INNER JOIN tb_diem ON tb_hocsinh.id_hs = tb_diem.id_hs INNER JOIN tb_Monhoc ON tb_Monhoc.ma_mh = tb_diem.ma_mh\n" +
+                     "WHERE tb_hocsinh.id_hs = ?";
+        String[] Args = new String[] {mahs +""};
+
+        Cursor cursor = sqLiteDatabase.rawQuery(sql, Args);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            MonHoc monHoc = new MonHoc();
+            monHoc.setMa_mh(cursor.getInt(0));
+            monHoc.setTen_mh(cursor.getString(1));
+            monHoc.setSo_tinchi(cursor.getInt(2));
+
+            monHocs.add(monHoc);
+            cursor.moveToNext();
+        }
+        close();
+        return monHocs;
+    }
+
 }
