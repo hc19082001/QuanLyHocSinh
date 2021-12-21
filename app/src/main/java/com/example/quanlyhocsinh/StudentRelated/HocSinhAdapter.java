@@ -196,7 +196,9 @@ public class HocSinhAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 String ten = edt_ten.getText().toString();
+
                 Lop lop = (Lop) sp_lop.getSelectedItem();
+
                 int malop = lop.getMa_lop();
                 int ns = Integer.parseInt(edt_NS.getText().toString());
                 boolean gt = false;
@@ -207,9 +209,9 @@ public class HocSinhAdapter extends BaseAdapter {
 
                 int slhs = getSoLuongHS(malop);
                 int slhs_ht = hocSinhDAO.getSLHSmotLop(malop);
-
-                if (slhs_ht >= slhs) {
-                    Toast.makeText(context, "SỐ LƯỢNG HS TRONG LỚP ĐÃ CHỌN ĐÃ ĐỦ, MỜI CHỌN LỚP KHÁC!", Toast.LENGTH_SHORT).show();
+                
+                if (slhs_ht >= slhs && hocSinh.getLop_hs() != malop ) {
+                        Toast.makeText(context, "SỐ LƯỢNG HS TRONG LỚP ĐÃ CHỌN ĐÃ ĐỦ, MỜI CHỌN LỚP KHÁC!", Toast.LENGTH_SHORT).show();
                 } else  {
                     hocSinh.setTen_hs(ten);
                     hocSinh.setLop_hs(malop);
