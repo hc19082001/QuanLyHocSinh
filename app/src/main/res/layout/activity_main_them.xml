@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EFFFE6"
+    android:background="#C0DFDC"
     tools:context=".StudentRelated.MainActivityTHEM_HocSinh">
 
     <TextView
@@ -32,6 +32,7 @@
         android:ems="10"
         android:hint="Nhập tên"
         android:inputType="textPersonName"
+        android:textColorHint="#806E6E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
@@ -47,6 +48,7 @@
         android:ems="10"
         android:hint="Nhập năm sinh"
         android:inputType="textPersonName"
+        android:textColorHint="#806E6E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner_lop"
@@ -60,6 +62,7 @@
         android:layout_marginEnd="38dp"
         android:backgroundTint="#009688"
         android:text="LƯU"
+        android:textColor="#E8E3E3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_diachi" />
 
@@ -71,6 +74,7 @@
         android:layout_marginTop="52dp"
         android:backgroundTint="#009688"
         android:text="CLEAR"
+        android:textColor="#E8E3E3"
         app:layout_constraintEnd_toStartOf="@+id/btnLUUADD"
         app:layout_constraintHorizontal_bias="0.266"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,6 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Chọn giới tính"
+        android:textColor="#6C6363"
         android:textSize="17dp"
         app:layout_constraintStart_toStartOf="@+id/edt_namsinhADD"
         app:layout_constraintTop_toBottomOf="@+id/edt_namsinhADD" />
@@ -101,14 +106,18 @@
             android:id="@+id/rbNam"
             android:layout_width="74dp"
             android:layout_height="wrap_content"
-            android:text="Nam" />
+            android:shadowColor="#6C5353"
+            android:text="Nam"
+            android:textColor="#4C3E3E" />
 
         <RadioButton
             android:id="@+id/rbNu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="Nữ" />
+            android:shadowColor="#6C5353"
+            android:text="Nữ"
+            android:textColor="#4C3E3E" />
     </RadioGroup>
 
     <EditText
@@ -118,6 +127,7 @@
         android:ems="10"
         android:hint="Nhập địa chỉ"
         android:inputType="textPersonName"
+        android:textColorHint="#806E6E"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupNamNu" />
 
@@ -127,6 +137,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Chọn lớp"
+        android:textColor="#6C6363"
         android:textSize="17dp"
         app:layout_constraintStart_toStartOf="@+id/edt_tenADD"
         app:layout_constraintTop_toBottomOf="@+id/edt_tenADD" />
@@ -137,6 +148,7 @@
         android:layout_height="41dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
+        android:backgroundTint="#685B5B"
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/edt_tenADD"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />

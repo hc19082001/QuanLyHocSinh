@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B5AB79"
+    android:background="#7DD1DC"
     tools:context=".SubjectRelated.MainActivityMonHoc">
 
     <androidx.appcompat.widget.Toolbar
@@ -16,7 +16,7 @@
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="QUẢN LÝ MÔN HỌC"/>
+        app:title="QUẢN LÝ MÔN HỌC" />
 
     <TextView
         android:id="@+id/textView4"

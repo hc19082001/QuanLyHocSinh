@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B5AB79"
+    android:background="#A8D870"
     tools:context=".ClassRelated.MainActivityLop">
 
     <androidx.appcompat.widget.Toolbar
@@ -16,7 +16,7 @@
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="QUẢN LÝ LỚP"/>
+        app:title="QUẢN LÝ LỚP" />
 
     <TextView
         android:id="@+id/textView4"

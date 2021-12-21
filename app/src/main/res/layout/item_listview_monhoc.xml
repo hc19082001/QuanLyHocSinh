@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#ACFFEC"
     android:orientation="horizontal"
     android:padding="5dp">
@@ -34,14 +34,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="ID:" />
+                        android:text="ID:"
+                        android:textColor="#834D8C" />
 
                     <TextView
                         android:id="@+id/tv_id_mh"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textColor="#834D8C" />
 
                 </LinearLayout>
 
@@ -55,7 +57,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="TÊN MÔN HỌC:" />
+                        android:text="TÊN MÔN HỌC:"
+                        android:textColor="#834D8C" />
 
                     <TextView
                         android:id="@+id/tv_ten_mh"
@@ -63,7 +66,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingLeft="5dp"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textColor="#834D8C" />
 
                 </LinearLayout>
 
@@ -77,7 +81,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="SỐ TÍN CHỈ:" />
+                        android:text="SỐ TÍN CHỈ:"
+                        android:textColor="#834D8C" />
 
                     <TextView
                         android:id="@+id/tv_stc"
@@ -85,7 +90,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingLeft="5dp"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textColor="#834D8C" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -95,12 +101,13 @@
 
             </LinearLayout>
 
-            <ImageButton
+               <ImageButton
                 android:id="@+id/imgbtnSua_mh"
                 android:layout_width="wrap_content"
                 android:layout_height="38dp"
                 android:layout_marginTop="7dp"
                 android:layout_weight="1"
+
                 android:minHeight="48dp"
                 app:srcCompat="@drawable/ic_baseline_update_24"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
@@ -111,6 +118,7 @@
                 android:layout_height="38dp"
                 android:layout_marginTop="7dp"
                 android:layout_weight="1"
+
                 android:minHeight="48dp"
                 app:srcCompat="@drawable/ic_baseline_delete_sweep_24"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />

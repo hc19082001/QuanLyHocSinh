@@ -131,9 +131,11 @@ public class MainActivityTTHS extends AppCompatActivity {
                 startActivity(intent);
                 break;
             default:
-                onBackPressed();
+                finish();
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#ACFFEC"
     android:orientation="horizontal"
     android:padding="5dp">
@@ -34,7 +34,8 @@
                         android:layout_width="10dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="ID:" />
+                        android:text="ID:"
+                        android:textColor="#E65183" />
 
                     <TextView
                         android:id="@+id/tv_id"
@@ -42,7 +43,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingLeft="5dp"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textColor="#E65183" />
 
                 </LinearLayout>
 
@@ -56,7 +58,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="TÊN:" />
+                        android:text="TÊN:"
+                        android:textColor="#E65183" />
 
                     <TextView
                         android:id="@+id/tv_ten"
@@ -64,7 +67,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingLeft="5dp"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textColor="#E65183" />
 
                     <ImageView
                         android:id="@+id/imv_gt"
@@ -85,7 +89,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="LỚP:" />
+                        android:text="LỚP:"
+                        android:textColor="#E65183" />
 
                     <TextView
                         android:id="@+id/tv_lop"
@@ -93,7 +98,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingLeft="5dp"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textColor="#E65183" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -109,7 +115,9 @@
                 android:layout_height="38dp"
                 android:layout_marginTop="7dp"
                 android:layout_weight="1"
+
                 android:minHeight="48dp"
+
                 app:srcCompat="@drawable/ic_baseline_info_24"
                 tools:ignore="SpeakableTextPresentCheck" />
 
@@ -119,6 +127,7 @@
                 android:layout_height="38dp"
                 android:layout_marginTop="7dp"
                 android:layout_weight="1"
+
                 android:minHeight="48dp"
                 app:srcCompat="@drawable/ic_baseline_update_24" />
 
@@ -128,6 +137,7 @@
                 android:layout_height="38dp"
                 android:layout_marginTop="7dp"
                 android:layout_weight="1"
+
                 android:minHeight="48dp"
                 app:srcCompat="@drawable/ic_baseline_delete_sweep_24"
                 tools:ignore="SpeakableTextPresentCheck" />

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EFFFE6"
+    android:background="#EDDAEF"
     tools:context=".SubjectRelated.MainActivityTHEM_MONHOC">
 
     <TextView
@@ -32,6 +32,7 @@
         android:ems="10"
         android:hint="Nhập tên môn học"
         android:inputType="textPersonName"
+        android:textColorHint="#605757"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
@@ -47,6 +48,7 @@
         android:ems="10"
         android:hint="Nhập số tín chỉ"
         android:inputType="textPersonName"
+        android:textColorHint="#605757"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_tenADD_mh"
@@ -61,6 +63,7 @@
         android:layout_marginTop="36dp"
         android:backgroundTint="#009688"
         android:text="LƯU"
+        android:textColor="#EFE9E9"
         app:layout_constraintStart_toEndOf="@+id/btnCLEARADD"
         app:layout_constraintTop_toBottomOf="@+id/edt_stcADD_mh" />
 
@@ -71,6 +74,7 @@
         android:layout_marginTop="36dp"
         android:backgroundTint="#009688"
         android:text="CLEAR"
+        android:textColor="#EFE9E9"
         app:layout_constraintStart_toStartOf="@+id/edt_stcADD_mh"
         app:layout_constraintTop_toBottomOf="@+id/edt_stcADD_mh" />
 

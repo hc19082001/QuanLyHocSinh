@@ -102,23 +102,10 @@ public class MainActivityDiem extends AppCompatActivity {
         });
     }
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_bar, menu);
-        return true;
-    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        switch (item.getItemId()) {
-            case R.id.addIT:
-                Intent intent = new Intent(MainActivityDiem.this, MainActivityTTHS.class);
-                startActivity(intent);
-                break;
-            default:
-                onBackPressed();
-                break;
-        }
+        finish();
         return super.onOptionsItemSelected(item);
     }
 

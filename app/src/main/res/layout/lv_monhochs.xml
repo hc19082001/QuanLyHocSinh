@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DCBDBD"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
@@ -32,14 +33,18 @@
                     android:id="@+id/tv1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="#00D8CFCF"
                     android:text="ID:"
+                    android:textColor="#212BF3"
                     android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/id_hs_dsdiem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="#00D8CFCF"
                     android:text="123"
+                    android:textColor="#212BF3"
                     android:textSize="24sp" />
             </LinearLayout>
 
@@ -52,14 +57,18 @@
                     android:id="@+id/tv2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="#00D8CFCF"
                     android:text="TÊN:"
+                    android:textColor="#212BF3"
                     android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/ten_hs_dsdiem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="#00D8CFCF"
                     android:text="NHC"
+                    android:textColor="#212BF3"
                     android:textSize="24sp" />
             </LinearLayout>
 
@@ -72,14 +81,18 @@
                     android:id="@+id/tv3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="#00D8CFCF"
                     android:text="LỚP:"
+                    android:textColor="#212BF3"
                     android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/lop_hs_dsdiem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="#00D8CFCF"
                     android:text="12A10"
+                    android:textColor="#212BF3"
                     android:textSize="24sp" />
             </LinearLayout>
 
@@ -87,18 +100,18 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/imv_hs_dsdiem"
             android:layout_width="109dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="43dp"
-            android:id="@+id/imv_hs_dsdiem"
             app:srcCompat="@drawable/ic_baseline_boy_24" />
 
 
     </LinearLayout>
 
     <ListView
+        android:id="@+id/lv_hs_xemdsdiem"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lv_hs_xemdsdiem"/>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

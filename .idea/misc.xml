@@ -5,29 +5,29 @@
       <map>
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.1125" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/drawable/ic_baseline_boy_24.xml" value="0.2203125" />
-        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activiti_themdsdiemhs.xml" value="0.33" />
+        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activiti_themdsdiemhs.xml" value="0.25" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_danhsach.xml" value="0.22" />
-        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_diem.xml" value="0.33" />
+        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_diem.xml" value="0.2" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_lop.xml" value="0.17346014492753623" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_menu.xml" value="0.33" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_mon_hoc.xml" value="0.1911231884057971" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_them.xml" value="0.33" />
-        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_them_lop.xml" value="0.16847826086956522" />
-        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_them_monhoc.xml" value="0.1911231884057971" />
+        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_them_lop.xml" value="0.33" />
+        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_them_monhoc.xml" value="0.33" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_tths.xml" value="0.16802536231884058" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/dialog_sua.xml" value="0.33" />
-        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/dialog_sua_lop.xml" value="0.1634963768115942" />
+        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/dialog_sua_lop.xml" value="0.33" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/dialog_sua_mh.xml" value="0.33" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/dialog_suadiem.xml" value="0.25" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/dialog_them_tiep.xml" value="0.25" />
-        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/item_listview_diemhs.xml" value="0.33" />
+        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/item_listview_diemhs.xml" value="0.5" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/item_listview_hocsinh.xml" value="0.33" />
-        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/item_listview_lop.xml" value="0.25" />
-        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/item_listview_monhoc.xml" value="0.33" />
+        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/item_listview_lop.xml" value="0.33" />
+        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/item_listview_monhoc.xml" value="0.5" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/item_monhoc.xml" value="0.1911231884057971" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/listview_hienthimonhochs.xml" value="0.75" />
-        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/lv_monhoc_xemdsdiem.xml" value="0.33" />
+        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/lv_monhoc_xemdsdiem.xml" value="0.25" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/lv_monhochs.xml" value="0.25" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/menu/menu_bar.xml" value="0.20416666666666666" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/menu/menu_mh.xml" value="0.20416666666666666" />

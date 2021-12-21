@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.example.quanlyhocsinh.ClassRelated.LopDAO;
+import com.example.quanlyhocsinh.MainActivityMENU;
 import com.example.quanlyhocsinh.R;
 
 public class MainActivityDANHSACH extends AppCompatActivity {
@@ -60,5 +61,11 @@ public class MainActivityDANHSACH extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        super.onBackPressed();
     }
 }
