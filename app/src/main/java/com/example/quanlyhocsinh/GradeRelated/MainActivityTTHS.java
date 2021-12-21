@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.quanlyhocsinh.MainActivityMENU;
 import com.example.quanlyhocsinh.R;
 import com.example.quanlyhocsinh.StudentRelated.HocSinhDAO;
 import com.example.quanlyhocsinh.StudentRelated.MainActivityDANHSACH;
@@ -131,6 +132,8 @@ public class MainActivityTTHS extends AppCompatActivity {
                 startActivity(intent);
                 break;
             default:
+                Intent intent1 = new Intent(MainActivityTTHS.this, MainActivityDiem.class);
+                startActivity(intent1);
                 finish();
                 break;
         }

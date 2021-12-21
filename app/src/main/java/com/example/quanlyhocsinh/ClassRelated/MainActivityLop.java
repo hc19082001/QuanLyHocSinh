@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.example.quanlyhocsinh.GradeRelated.MainActivityDiem;
+import com.example.quanlyhocsinh.MainActivityMENU;
 import com.example.quanlyhocsinh.R;
 import com.example.quanlyhocsinh.SubjectRelated.MainActivityMonHoc;
 import com.example.quanlyhocsinh.SubjectRelated.MainActivityTHEM_MONHOC;
@@ -57,6 +59,8 @@ public class MainActivityLop extends AppCompatActivity {
                 startActivity(intent);
                 break;
             default:
+                Intent intent1 = new Intent(MainActivityLop.this, MainActivityMENU.class);
+                startActivity(intent1);
                 finish();
                 break;
         }

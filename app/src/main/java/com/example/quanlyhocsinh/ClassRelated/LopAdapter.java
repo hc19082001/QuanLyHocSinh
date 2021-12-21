@@ -27,7 +27,6 @@ public class LopAdapter extends BaseAdapter {
         this.lopArrayList = lopArrayList;
         this.lopDAO = lopDAO;
     }
-
     @Override
     public int getCount() {
         return lopArrayList.size();
@@ -80,15 +79,20 @@ public class LopAdapter extends BaseAdapter {
                 builder.setPositiveButton("CÓ", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        int kq = lopDAO.deleteRow(lop);
-                        if(kq>0){
-                            lopArrayList.remove(position);
-                            notifyDataSetChanged();
-                            Toast.makeText(parent.getContext(), "XÓA THÀNH CÔNG", Toast.LENGTH_SHORT).show();
-                        }else{
-                            Toast.makeText(parent.getContext(), "XÓA THẤT BẠI", Toast.LENGTH_SHORT).show();
+
+                        if (lopDAO.getSLHSmotLop(lop.getMa_lop()) > 0) {
+                            Toast.makeText(parent.getContext(), "CÒN HỌC SINH TRONG LỚP, KHÔNG THỂ XÓA", Toast.LENGTH_SHORT).show();
+                        } else {
+                            int kq = lopDAO.deleteRow(lop);
+                            if(kq>0){
+                                lopArrayList.remove(position);
+                                notifyDataSetChanged();
+                                Toast.makeText(parent.getContext(), "XÓA THÀNH CÔNG", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(parent.getContext(), "XÓA THẤT BẠI", Toast.LENGTH_SHORT).show();
+                            }
+                            dialog.dismiss();
                         }
-                        dialog.dismiss();
                     }
                 });
                 builder.setNegativeButton("KHÔNG", new DialogInterface.OnClickListener() {

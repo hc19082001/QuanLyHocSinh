@@ -20,6 +20,7 @@ import com.example.quanlyhocsinh.ClassRelated.LopDAO;
 import com.example.quanlyhocsinh.ClassRelated.MainActivityLop;
 import com.example.quanlyhocsinh.ClassRelated.MainActivityTHEM_LOP;
 import com.example.quanlyhocsinh.MainActivity;
+import com.example.quanlyhocsinh.MainActivityMENU;
 import com.example.quanlyhocsinh.R;
 import com.example.quanlyhocsinh.StudentRelated.HocSinh;
 import com.example.quanlyhocsinh.StudentRelated.HocSinhDAO;
@@ -105,6 +106,8 @@ public class MainActivityDiem extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Intent intent = new Intent(MainActivityDiem.this, MainActivityMENU.class);
+        startActivity(intent);
         finish();
         return super.onOptionsItemSelected(item);
     }

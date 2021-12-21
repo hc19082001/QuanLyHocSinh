@@ -11,6 +11,9 @@ import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.example.quanlyhocsinh.ClassRelated.LopDAO;
+import com.example.quanlyhocsinh.ClassRelated.MainActivityLop;
+import com.example.quanlyhocsinh.ClassRelated.MainActivityTHEM_LOP;
+import com.example.quanlyhocsinh.MainActivity;
 import com.example.quanlyhocsinh.MainActivityMENU;
 import com.example.quanlyhocsinh.R;
 
@@ -57,15 +60,13 @@ public class MainActivityDANHSACH extends AppCompatActivity {
                 startActivity(intent);
                 break;
             default:
-                onBackPressed();
+                Intent intent1 = new Intent(MainActivityDANHSACH.this, MainActivityMENU.class);
+                startActivity(intent1);
+                finish();
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onBackPressed() {
 
-        super.onBackPressed();
-    }
 }

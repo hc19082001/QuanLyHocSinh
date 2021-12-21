@@ -10,6 +10,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.example.quanlyhocsinh.ClassRelated.MainActivityLop;
+import com.example.quanlyhocsinh.ClassRelated.MainActivityTHEM_LOP;
+import com.example.quanlyhocsinh.MainActivity;
+import com.example.quanlyhocsinh.MainActivityMENU;
 import com.example.quanlyhocsinh.R;
 
 public class MainActivityMonHoc extends AppCompatActivity {
@@ -52,6 +56,8 @@ public class MainActivityMonHoc extends AppCompatActivity {
                 startActivity(intent);
                 break;
             default:
+                Intent intent1 = new Intent(MainActivityMonHoc.this, MainActivityMENU.class);
+                startActivity(intent1);
                 finish();
                 break;
         }
