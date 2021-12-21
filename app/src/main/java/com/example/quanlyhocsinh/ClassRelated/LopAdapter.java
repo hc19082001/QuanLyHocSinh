@@ -58,6 +58,7 @@ public class LopAdapter extends BaseAdapter {
         TextView tv_id = itemView.findViewById(R.id.tv_malop);
         TextView tv_ten = itemView.findViewById(R.id.tv_ten_lop);
         TextView tv_lop = itemView.findViewById(R.id.tv_sl);
+        TextView tv_lop_ht = itemView.findViewById(R.id.tv_slht);
 
         ImageButton img_btn_Sua = itemView.findViewById(R.id.imgbtnSua_lop);
         ImageButton img_btn_Xoa = itemView.findViewById(R.id.imgbtnXoa_lop);
@@ -104,6 +105,7 @@ public class LopAdapter extends BaseAdapter {
         tv_id.setText(lop.getMa_lop()+"");
         tv_ten.setText(lop.getTen_lop());
         tv_lop.setText(lop.getSo_luong()+"");
+        tv_lop_ht.setText(lopDAO.getSLHSmotLop(lop.getMa_lop())+"");
 
         return itemView;
     }
@@ -128,18 +130,22 @@ public class LopAdapter extends BaseAdapter {
                 String ten = edt_ten.getText().toString();
                 int slg = Integer.parseInt(edt_sl.getText().toString()) ;
 
-                lop.setTen_lop(ten);
-                lop.setSo_luong(slg);
+                if (lopDAO.getSLHSmotLop(lop.getMa_lop()) > slg) {
+                    Toast.makeText(context, "SỐ LƯỢNG HỌC SINH LỚP HIỆN TẠI ĐANG LỚN HƠN SỐ LƯỢNG CẦN CẬP NHẬT, VUI LÒNG SỬA LẠI", Toast.LENGTH_SHORT).show();
+                } else  {
+                    lop.setTen_lop(ten);
+                    lop.setSo_luong(slg);
 
-                int kq = lopDAO.updateRow(lop);
-                if(kq>0){
-                    lopArrayList.set(vitri,lop);
-                    notifyDataSetChanged();
-                    Toast.makeText(context, "SỬA THÀNH CÔNG", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(context, "SỬA THẤT BẠI", Toast.LENGTH_SHORT).show();
+                    int kq = lopDAO.updateRow(lop);
+                    if(kq>0){
+                        lopArrayList.set(vitri,lop);
+                        notifyDataSetChanged();
+                        Toast.makeText(context, "SỬA THÀNH CÔNG", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(context, "SỬA THẤT BẠI", Toast.LENGTH_SHORT).show();
+                    }
+                    dialog.dismiss();
                 }
-                dialog.dismiss();
             }
         });
         dialog.show();

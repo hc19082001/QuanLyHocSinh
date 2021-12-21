@@ -85,4 +85,17 @@ public class LopDAO {
         return lops;
     }
 
+    public int getSLHSmotLop(int malop) {
+        open();
+        int sl = 0;
+        String[] selectionArg = new String[] {malop + ""};
+        String query = "SELECT * FROM tb_hocsinh INNER JOIN Tb_Lop ON Tb_Lop.ma_lop = tb_hocsinh.lop_hs WHERE Tb_Lop.ma_lop = ?";
+        Cursor cursor = sqLiteDatabase.rawQuery(query, selectionArg);
+        sl = cursor.getCount();
+        cursor.moveToLast();
+        return sl;
+    }
+
+
+
 }
