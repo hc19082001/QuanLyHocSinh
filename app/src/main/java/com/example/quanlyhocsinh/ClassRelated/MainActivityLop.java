@@ -30,15 +30,15 @@ import com.example.quanlyhocsinh.SubjectRelated.MonHocDAO;
 import java.util.ArrayList;
 
 public class MainActivityLop extends AppCompatActivity {
-    ArrayList<Lop> lopArrayList;
+
     ListView lv_danhsach;
     LopDAO lopDAO;
     LopAdapter lopAdapter;
     Toolbar toolbar;
 
-    Button nutLop;
 
-    EditText tenLop;
+
+
 
 
     @Override
@@ -46,7 +46,7 @@ public class MainActivityLop extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_lop);
 
-        nutLop = findViewById(R.id.btnTimLop);
+
 
 
         lv_danhsach = findViewById(R.id.lv_danhsach_lop);
