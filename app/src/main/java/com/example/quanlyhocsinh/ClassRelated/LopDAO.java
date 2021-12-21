@@ -98,4 +98,33 @@ public class LopDAO {
 
 
 
+    public ArrayList<Lop> search(String tenlop, int malop){
+        sqLiteDatabase = dbHocSinh.getWritableDatabase();
+
+        ArrayList<Lop> lops = new ArrayList<>();
+
+        String [] dsCot = new String []{"*"};
+
+        String dieukien = Lop.COL_TENLOP + " = ? " + " OR " + Lop.COL_MALOP + " = ? ";
+
+        String[] giatri = new String[] {tenlop+"", malop+""};
+
+        Cursor cursor = sqLiteDatabase.query(Lop.DB_LOP_NAME, dsCot, dieukien, giatri, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            while (cursor.isAfterLast() == false) {
+
+                Lop lop = new Lop();
+                lop.setMa_lop(cursor.getInt(0));
+                lop.setTen_lop(cursor.getString(1));
+                lop.setSo_luong(cursor.getInt(2));
+
+                lops.add(lop);
+                cursor.moveToNext();
+            }
+        }
+        return lops;
+    }
+
+
 }

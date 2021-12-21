@@ -1,6 +1,7 @@
 package com.example.quanlyhocsinh.ClassRelated;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -9,27 +10,44 @@ import android.os.Bundle;
 import android.util.FloatProperty;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
-import com.example.quanlyhocsinh.GradeRelated.MainActivityDiem;
-import com.example.quanlyhocsinh.MainActivityMENU;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.quanlyhocsinh.R;
 import com.example.quanlyhocsinh.SubjectRelated.MainActivityMonHoc;
 import com.example.quanlyhocsinh.SubjectRelated.MainActivityTHEM_MONHOC;
 import com.example.quanlyhocsinh.SubjectRelated.MonHocAdapter;
 import com.example.quanlyhocsinh.SubjectRelated.MonHocDAO;
 
-public class MainActivityLop extends AppCompatActivity {
+import java.util.ArrayList;
 
+public class MainActivityLop extends AppCompatActivity {
+    ArrayList<Lop> lopArrayList;
     ListView lv_danhsach;
     LopDAO lopDAO;
     LopAdapter lopAdapter;
     Toolbar toolbar;
 
+    Button nutLop;
+
+    EditText tenLop;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_lop);
+
+        nutLop = findViewById(R.id.btnTimLop);
+
 
         lv_danhsach = findViewById(R.id.lv_danhsach_lop);
         toolbar = findViewById(R.id.toolbar_lop);
@@ -42,7 +60,14 @@ public class MainActivityLop extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+
     }
+
+
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -58,10 +83,9 @@ public class MainActivityLop extends AppCompatActivity {
                 Intent intent = new Intent(MainActivityLop.this, MainActivityTHEM_LOP.class);
                 startActivity(intent);
                 break;
+
             default:
-                Intent intent1 = new Intent(MainActivityLop.this, MainActivityMENU.class);
-                startActivity(intent1);
-                finish();
+                onBackPressed();
                 break;
         }
         return super.onOptionsItemSelected(item);

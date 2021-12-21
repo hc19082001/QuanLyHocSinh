@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:orientation="vertical"
+    android:background="@color/purple_200">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="QUẢN LÝ HỌC SINH"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/purple_500"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="99dp"
+        android:layout_height="78dp"
+        android:src="@drawable/ic_baseline_people_alt_24"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NHÓM 4"
+        android:layout_marginLeft="20dp"/>
+
+
+</LinearLayout>
