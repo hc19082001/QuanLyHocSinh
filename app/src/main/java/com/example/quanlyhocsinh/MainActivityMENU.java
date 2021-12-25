@@ -26,20 +26,20 @@ public class MainActivityMENU extends AppCompatActivity {
     DrawerLayout drawerLayout;
     Toolbar toolbar;
 
-    Button btnDanhsach;
+   /* Button btnDanhsach;
     Button btnMH;
     Button btnLOP;
-    Button buttonDIEM;
+    Button buttonDIEM;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        btnDanhsach = findViewById(R.id.btnDANHSACH);
+       /* btnDanhsach = findViewById(R.id.btnDANHSACH);
         btnMH = findViewById(R.id.btn_MonHoc);
         btnLOP = findViewById(R.id.btn_LOP);
-        buttonDIEM = findViewById(R.id.btn_QLD);
+        buttonDIEM = findViewById(R.id.btn_QLD);*/
         drawerLayout = findViewById(R.id.drawerlayout);
         toolbar = findViewById(R.id.toolbar_nav);
 
@@ -51,7 +51,7 @@ public class MainActivityMENU extends AppCompatActivity {
         toggle.syncState();
 
 
-        btnDanhsach.setOnClickListener(new View.OnClickListener() {
+        /*btnDanhsach.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivityMENU.this, MainActivityDANHSACH.class);
@@ -82,7 +82,7 @@ public class MainActivityMENU extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+*/
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

@@ -8,7 +8,7 @@
     android:background="#DBFDFA"
     tools:context=".MainActivityMENU"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">>
+    tools:openDrawer="start">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,66 +26,110 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="171dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="182dp"
-        android:text="QUẢN LÝ HỌC SINH"
-        android:textColor="@color/teal_700"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="171dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="182dp"
+            android:gravity="center"
+            android:text="CHÀO MỪNG ĐẾN VỚI PHẦN MỀM QUẢN LÝ HỌC SINH"
+            android:textColor="@color/teal_700"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnDANHSACH"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="109dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="112dp"
-        android:backgroundTint="#009688"
-        android:text="QUẢN LÝ HỌC SINH"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="210dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="220dp"
+            android:layout_marginEnd="100dp"
+            android:gravity="center"
+            android:text="Thành viên nhóm "
+            android:textColor="#00BCD4"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolbar_nav" />
 
-    <Button
-        android:id="@+id/btn_MonHoc"
-        android:layout_width="179dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="32dp"
-        android:text="QUẢN LÝ MÔN HỌC"
-        app:layout_constraintEnd_toEndOf="@+id/btnDANHSACH"
-        app:layout_constraintStart_toStartOf="@+id/btnDANHSACH"
-        app:layout_constraintTop_toBottomOf="@+id/btnDANHSACH" />
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="179dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Nguyễn Huy Cường"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView22"
+            app:layout_constraintStart_toStartOf="@+id/textView22"
+            app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
-    <Button
-        android:id="@+id/btn_LOP"
-        android:layout_width="178dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="32dp"
-        android:backgroundTint="@color/purple_200"
-        android:text="Quản lý lớp"
-        app:layout_constraintEnd_toEndOf="@+id/btn_MonHoc"
-        app:layout_constraintStart_toStartOf="@+id/btn_MonHoc"
-        app:layout_constraintTop_toBottomOf="@+id/btn_MonHoc" />
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="179dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Trương Minh Khang"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView23"
+            app:layout_constraintStart_toStartOf="@+id/textView23"
+            app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
-    <Button
-        android:id="@+id/btn_QLD"
-        android:layout_width="179dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="32dp"
-        android:text="QUẢN LÝ ĐIỂM "
-        app:layout_constraintEnd_toEndOf="@+id/btn_LOP"
-        app:layout_constraintStart_toStartOf="@+id/btn_LOP"
-        android:backgroundTint="@color/cardview_shadow_start_color"
-        app:layout_constraintTop_toBottomOf="@+id/btn_LOP" />
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="179dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Phạm Ngọc Sơn"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView24"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textView24"
+            app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="179dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Đỗ Chí Đạo"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView25"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textView25"
+            app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="179dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Đỗ Chí Đạo"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView25"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textView25"
+            app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="179dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Lê Việt Khánh Như"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView26"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textView26"
+            app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,9 +1,11 @@
 package com.example.quanlyhocsinh.GradeRelated;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,6 +18,7 @@ import com.example.quanlyhocsinh.SubjectRelated.MainActivityMonHoc;
 import com.example.quanlyhocsinh.SubjectRelated.MainActivityTHEM_MONHOC;
 import com.example.quanlyhocsinh.SubjectRelated.MonHoc;
 import com.example.quanlyhocsinh.SubjectRelated.MonHocDAO;
+import androidx.appcompat.widget.Toolbar;
 
 import java.util.ArrayList;
 
@@ -27,6 +30,7 @@ public class MainActivityTHEMDIEM extends AppCompatActivity {
     ArrayList<MonHoc> monHocs;
     MonHocDAO monHocDAO;
     DiemDAO diemDAO;
+    Toolbar toolbar;
 
 
 
@@ -42,6 +46,8 @@ public class MainActivityTHEMDIEM extends AppCompatActivity {
         button = findViewById(R.id.btnTHEM_xemdsdiem);
         diemDAO = new DiemDAO(this);
 
+        toolbar = findViewById(R.id.toolbar_themdiem);
+
         Bundle bundle = getIntent().getExtras();
         int idhs = bundle.getInt("idhs2");
         int lop = bundle.getInt("lophs2");
@@ -50,6 +56,10 @@ public class MainActivityTHEMDIEM extends AppCompatActivity {
 
         monHocDAO = new MonHocDAO(this);
         monHocs = monHocDAO.getAll();
+
+        setSupportActionBar(toolbar);//thay thế actionbar thông thường
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Set thanh điều hướng cho toolbar
+
         ArrayAdapter<MonHoc> monHocArrayAdapter = new ArrayAdapter<MonHoc>(
                 this,
                 R.layout.support_simple_spinner_dropdown_item,
@@ -91,5 +101,11 @@ public class MainActivityTHEMDIEM extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        onBackPressed();
+        return super.onOptionsItemSelected(item);
     }
 }

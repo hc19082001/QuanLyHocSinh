@@ -1,13 +1,16 @@
 package com.example.quanlyhocsinh.SubjectRelated;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.quanlyhocsinh.R;
 
@@ -18,6 +21,8 @@ public class MainActivityTHEM_MONHOC extends AppCompatActivity {
 
     Button btnSave;
     MonHocDAO monHocDAO;
+
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +33,11 @@ public class MainActivityTHEM_MONHOC extends AppCompatActivity {
         btnSave = findViewById(R.id.btnLUUADD_mh);
 
         monHocDAO = new MonHocDAO(MainActivityTHEM_MONHOC.this);
+
+        toolbar = findViewById(R.id.toolbar_themMH);
+
+        setSupportActionBar(toolbar);//thay thế actionbar thông thường
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Set thanh điều hướng cho toolbar
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,5 +62,11 @@ public class MainActivityTHEM_MONHOC extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        onBackPressed();
+        return super.onOptionsItemSelected(item);
     }
 }

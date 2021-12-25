@@ -17,7 +17,7 @@ import com.example.quanlyhocsinh.MainActivity;
 import com.example.quanlyhocsinh.MainActivityMENU;
 import com.example.quanlyhocsinh.R;
 
-public class MainActivityDANHSACH extends AppCompatActivity {
+public class  MainActivityDANHSACH extends AppCompatActivity {
     
     ListView lv_danhsach;
     HocSinhDAO hocSinhDAO;

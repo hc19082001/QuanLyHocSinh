@@ -1,9 +1,11 @@
 package com.example.quanlyhocsinh.ClassRelated;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +16,7 @@ import com.example.quanlyhocsinh.SubjectRelated.MainActivityMonHoc;
 import com.example.quanlyhocsinh.SubjectRelated.MainActivityTHEM_MONHOC;
 import com.example.quanlyhocsinh.SubjectRelated.MonHoc;
 import com.example.quanlyhocsinh.SubjectRelated.MonHocDAO;
+import androidx.appcompat.widget.Toolbar;
 
 public class MainActivityTHEM_LOP extends AppCompatActivity {
 
@@ -22,6 +25,8 @@ public class MainActivityTHEM_LOP extends AppCompatActivity {
 
     Button btnSave;
     LopDAO lopDAO;
+
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +37,11 @@ public class MainActivityTHEM_LOP extends AppCompatActivity {
         btnSave = findViewById(R.id.btnLUUADD_lop);
 
         lopDAO = new LopDAO(MainActivityTHEM_LOP.this);
+
+        toolbar = findViewById(R.id.toolbar_themLop);
+
+        setSupportActionBar(toolbar);//thay thế actionbar thông thường
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Set thanh điều hướng cho toolbar
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,5 +64,11 @@ public class MainActivityTHEM_LOP extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        onBackPressed();
+        return super.onOptionsItemSelected(item);
     }
 }

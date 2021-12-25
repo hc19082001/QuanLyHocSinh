@@ -66,8 +66,8 @@ public class MainActivityTTHS extends AppCompatActivity {
         lop = bundle.getInt("lophs");
         gt = bundle.getBoolean("gths");
 
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setSupportActionBar(toolbar);//thay thế actionbar thông thường
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Set thanh điều hướng cho toolbar
 
         textViewID.setText( idhs +"");
         textViewTen.setText(ten);

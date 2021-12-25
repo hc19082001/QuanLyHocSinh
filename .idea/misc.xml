@@ -41,20 +41,24 @@
         <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/activity_main_danhsach.xml" value="0.1793478260869565" />
         <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/activity_main_diem.xml" value="0.17798913043478262" />
         <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/activity_main_lop.xml" value="0.4" />
-        <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/activity_main_menu.xml" value="0.48104956268221577" />
-        <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/activity_main_them.xml" value="0.4" />
+        <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/activity_main_menu.xml" value="0.264" />
+        <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/activity_main_mon_hoc.xml" value="0.17346014492753623" />
+        <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/activity_main_them.xml" value="0.264" />
         <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/activity_main_them_lop.xml" value="0.17798913043478262" />
-        <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/dialog_sua.xml" value="0.4" />
+        <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/activity_main_them_monhoc.xml" value="0.17300724637681159" />
+        <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/activity_main_timlop.xml" value="0.1621376811594203" />
+        <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/dialog_sua.xml" value="0.264" />
         <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/dialog_sua_lop.xml" value="0.18795289855072464" />
         <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/dialog_sua_mh.xml" value="0.18795289855072464" />
         <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/dialog_suadiem.xml" value="0.221875" />
         <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/dialog_tim.xml" value="0.18795289855072464" />
         <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/dialog_tim_lop.xml" value="0.2" />
         <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/item_listview_diemhs.xml" value="0.17798913043478262" />
-        <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/item_listview_hocsinh.xml" value="0.4" />
+        <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/item_listview_hocsinh.xml" value="0.264" />
         <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/item_listview_lop.xml" value="0.13229166666666667" />
         <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/item_listview_monhoc.xml" value="0.17798913043478262" />
         <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/lv_monhoc_xemdsdiem.xml" value="0.17798913043478262" />
+        <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/lv_monhochs.xml" value="0.17300724637681159" />
         <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/layout/navigation_header.xml" value="0.536" />
         <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/menu/menu_bar.xml" value="0.221875" />
         <entry key="..\:/studying/Nam3/LapTrinhDiDong/QuanLyHocSinh/app/src/main/res/menu/navigation_menu.xml" value="0.2578125" />

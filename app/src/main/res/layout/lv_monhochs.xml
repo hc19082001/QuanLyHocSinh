@@ -16,11 +16,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="103dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="256dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -101,9 +101,9 @@
 
         <ImageView
             android:id="@+id/imv_hs_dsdiem"
-            android:layout_width="109dp"
+            android:layout_width="122dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="43dp"
+            android:layout_gravity="top"
             app:srcCompat="@drawable/ic_baseline_boy_24" />
 
 

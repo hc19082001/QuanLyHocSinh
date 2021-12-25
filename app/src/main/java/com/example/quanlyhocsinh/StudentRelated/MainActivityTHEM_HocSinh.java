@@ -1,9 +1,12 @@
 package com.example.quanlyhocsinh.StudentRelated;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,6 +16,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.quanlyhocsinh.ClassRelated.Lop;
 import com.example.quanlyhocsinh.ClassRelated.LopDAO;
@@ -34,6 +38,9 @@ public class MainActivityTHEM_HocSinh extends AppCompatActivity {
     HocSinhDAO hocSinhDAO;
     LopDAO lopDAO;
     ArrayList<Lop> lopArrayList;
+    Toolbar toolbar;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +53,7 @@ public class MainActivityTHEM_HocSinh extends AppCompatActivity {
         radioGroup_GT = findViewById(R.id.radioGroupNamNu);
         radioButton_Nam = findViewById(R.id.rbNam);
         radioButton_Nu = findViewById(R.id.rbNu);
+        toolbar = findViewById(R.id.toolbar_them_hs);
 
         btnClear = findViewById(R.id.btnCLEARADD);
         btnSave = findViewById(R.id.btnLUUADD);
@@ -54,11 +62,16 @@ public class MainActivityTHEM_HocSinh extends AppCompatActivity {
         lopDAO = new LopDAO(MainActivityTHEM_HocSinh.this);
         lopArrayList = lopDAO.getAll();
 
+        setSupportActionBar(toolbar);//thay thế actionbar thông thường
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Set thanh điều hướng cho toolbar
+
+
         ArrayAdapter<Lop> lopArrayAdapter = new ArrayAdapter<Lop>(
                 this,
                 R.layout.support_simple_spinner_dropdown_item,
                 lopArrayList
         );
+
         spinner_addlop.setAdapter(lopArrayAdapter);
 
 
@@ -105,9 +118,11 @@ public class MainActivityTHEM_HocSinh extends AppCompatActivity {
 
 
             }
-        });
 
+
+        });
     }
+
 
     private Lop layObjLop(int malop) {
 
@@ -118,5 +133,11 @@ public class MainActivityTHEM_HocSinh extends AppCompatActivity {
             }
         }
         return null;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        onBackPressed();
+        return super.onOptionsItemSelected(item);
     }
 }
