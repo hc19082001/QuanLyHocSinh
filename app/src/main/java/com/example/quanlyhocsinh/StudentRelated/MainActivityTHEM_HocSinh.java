@@ -90,16 +90,13 @@ public class MainActivityTHEM_HocSinh extends AppCompatActivity {
                     hocSinh.setNs_hs(ns);
                     hocSinh.setGioitinh_hs(gt);
                     hocSinh.setDiachi_hs(dc);
-                    long kq = hocSinhDAO.addRow(hocSinh);
+                    hocSinhDAO.addRow(hocSinh);
+                    hocSinhDAO.addDataToWeb(hocSinh);
 
-                    if(kq>0){
-                        Toast.makeText(MainActivityTHEM_HocSinh.this, "THÊM THÀNH CÔNG", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(MainActivityTHEM_HocSinh.this,MainActivityDANHSACH.class);
-                        startActivity(intent);
+                    Toast.makeText(MainActivityTHEM_HocSinh.this, "THÊM THÀNH CÔNG", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivityTHEM_HocSinh.this,MainActivityDANHSACH.class);
+                    startActivity(intent);
 
-                    }else {
-                        Toast.makeText(MainActivityTHEM_HocSinh.this, "THÊM THẤT BẠI", Toast.LENGTH_SHORT).show();
-                    }
                 }
 
 

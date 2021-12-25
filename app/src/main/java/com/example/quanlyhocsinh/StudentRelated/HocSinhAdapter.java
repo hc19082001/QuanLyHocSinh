@@ -89,7 +89,7 @@ public class HocSinhAdapter extends BaseAdapter {
                 int vitript = layViTriPTLop(hocSinh.getLop_hs(), lopArrayList);
                 builder.setMessage("ID : "+hocSinh.getId_hs()+
                         "\nTên : "+hocSinh.getTen_hs()+
-                        "\nLớp : "+lopArrayList.get(vitript).getTen_lop()+
+                        "\nLớp : "+ lopArrayList.get(vitript).getTen_lop() +
                         "\nNăm sinh : "+hocSinh.getNs_hs()+
                         "\ngiới tính : "+ gt +
                         "\nĐịa chỉ : "+hocSinh.getDiachi_hs());
@@ -120,14 +120,10 @@ public class HocSinhAdapter extends BaseAdapter {
                 builder.setPositiveButton("CÓ", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        int kq = hocSinhDAO.deleteRow(hocSinh);
-                        if(kq>0){
-                            listHocSinhs.remove(position);
-                            notifyDataSetChanged();
-                            Toast.makeText(viewGroup.getContext(), "XÓA THÀNH CÔNG", Toast.LENGTH_SHORT).show();
-                        }else{
-                            Toast.makeText(viewGroup.getContext(), "XÓA THẤT BẠI", Toast.LENGTH_SHORT).show();
-                        }
+                        hocSinhDAO.deleteDataOnWeb(hocSinh.getId_hs());
+                        Toast.makeText(viewGroup.getContext(), "XÓA THÀNH CÔNG", Toast.LENGTH_SHORT).show();
+                        listHocSinhs.remove(hocSinh);
+                        notifyDataSetChanged();
                         dialog.dismiss();
                     }
                 });
@@ -218,15 +214,15 @@ public class HocSinhAdapter extends BaseAdapter {
                     hocSinh.setNs_hs(ns);
                     hocSinh.setGioitinh_hs(gt);
                     hocSinh.setDiachi_hs(diachi);
-                    int kq = hocSinhDAO.updateRow(hocSinh);
-                    if(kq>0){
-                        listHocSinhs.set(vitri,hocSinh);
-                        notifyDataSetChanged();
-                        Toast.makeText(context, "SỬA THÀNH CÔNG", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(context, "SỬA THẤT BẠI", Toast.LENGTH_SHORT).show();
-                    }
+                    hocSinhDAO.updateRow(hocSinh);
+                    hocSinhDAO.updateDataToWeb(hocSinh);
+
+                    listHocSinhs.set(vitri,hocSinh);
+                    notifyDataSetChanged();
+                    Toast.makeText(context, "SỬA THÀNH CÔNG", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
+
+
                 }
 
             }
