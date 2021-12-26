@@ -26,20 +26,12 @@ public class MainActivityMENU extends AppCompatActivity {
     DrawerLayout drawerLayout;
     Toolbar toolbar;
 
-   /* Button btnDanhsach;
-    Button btnMH;
-    Button btnLOP;
-    Button buttonDIEM;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-       /* btnDanhsach = findViewById(R.id.btnDANHSACH);
-        btnMH = findViewById(R.id.btn_MonHoc);
-        btnLOP = findViewById(R.id.btn_LOP);
-        buttonDIEM = findViewById(R.id.btn_QLD);*/
         drawerLayout = findViewById(R.id.drawerlayout);
         toolbar = findViewById(R.id.toolbar_nav);
 
@@ -51,38 +43,6 @@ public class MainActivityMENU extends AppCompatActivity {
         toggle.syncState();
 
 
-        /*btnDanhsach.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivityMENU.this, MainActivityDANHSACH.class);
-                startActivity(intent);
-            }
-        });
-
-        btnMH.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivityMENU.this, MainActivityMonHoc.class);
-                startActivity(intent);
-            }
-        });
-
-        btnLOP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivityMENU.this, MainActivityLop.class);
-                startActivity(intent);
-            }
-        });
-
-        buttonDIEM.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivityMENU.this, MainActivityDiem.class);
-                startActivity(intent);
-            }
-        });
-*/
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
