@@ -19,7 +19,7 @@ public class DbHocSinh extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
        String sql_hocsinh = String.format( "CREATE TABLE %s ( " +
-               "%s INTEGER PRIMARY KEY AUTOINCREMENT," +
+               "%s INTEGER PRIMARY KEY ," +
                "%s TEXT NOT NULL," +
                "%s INTEGER NOT NULL," +
                "%s INTEGER NOT NULL," +
@@ -31,13 +31,13 @@ public class DbHocSinh extends SQLiteOpenHelper {
                HocSinh.COL_LOP, Lop.DB_LOP_NAME, Lop.COL_MALOP);
 
         String sql_monhoc = String.format( "CREATE TABLE %s ( " +
-                        "%s INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        "%s INTEGER PRIMARY KEY ," +
                         "%s TEXT NOT NULL," +
                         "%s INTEGER NOT NULL );",
                 MonHoc.TB_MONHOC_NAME,  MonHoc.COL_MAMH, MonHoc.COL_TENMH, MonHoc.COL_SOTINCHI);
 
         String sql_lop = String.format( "CREATE TABLE %s ( " +
-                        "%s INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        "%s INTEGER PRIMARY KEY ," +
                         "%s TEXT NOT NULL," +
                         "%s INTEGER NOT NULL );",
                 Lop.DB_LOP_NAME,  Lop.COL_MALOP, Lop.COL_TENLOP, Lop.COL_SOLUONG);
@@ -60,10 +60,27 @@ public class DbHocSinh extends SQLiteOpenHelper {
        db.execSQL(sql_monhoc);
        db.execSQL(sql_lop);
        db.execSQL(sql_diem);
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+    public void deleteAllData() {
+
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        sqLiteDatabase.delete(Diem.DIEM_DB_NAME, null, null);
+        sqLiteDatabase.delete(MonHoc.TB_MONHOC_NAME, null, null);
+        sqLiteDatabase.delete(HocSinh.TB_NAME, null, null);
+        sqLiteDatabase.delete(Lop.DB_LOP_NAME, null, null);
+        sqLiteDatabase.close();
+
+    }
+
+
+
+
+
 }

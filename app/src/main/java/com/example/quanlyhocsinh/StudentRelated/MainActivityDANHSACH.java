@@ -9,7 +9,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.quanlyhocsinh.ClassRelated.LopDAO;
 import com.example.quanlyhocsinh.ClassRelated.MainActivityLop;
 import com.example.quanlyhocsinh.ClassRelated.MainActivityTHEM_LOP;
@@ -17,13 +24,23 @@ import com.example.quanlyhocsinh.MainActivity;
 import com.example.quanlyhocsinh.MainActivityMENU;
 import com.example.quanlyhocsinh.R;
 
-public class  MainActivityDANHSACH extends AppCompatActivity {
-    
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+public class MainActivityDANHSACH extends AppCompatActivity {
+
+
     ListView lv_danhsach;
     HocSinhDAO hocSinhDAO;
     LopDAO lopDAO;
     HocSinhAdapter hocSinhAdapter;
+
     Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +50,9 @@ public class  MainActivityDANHSACH extends AppCompatActivity {
         lv_danhsach = findViewById(R.id.lv_danhsach);
         toolbar = findViewById(R.id.toolbar);
 
-        hocSinhDAO = new HocSinhDAO(MainActivityDANHSACH.this);
+        hocSinhDAO = new HocSinhDAO(this);
         lopDAO = new LopDAO(MainActivityDANHSACH.this);
+
         hocSinhDAO.open();
 
         hocSinhAdapter = new HocSinhAdapter(hocSinhDAO.getAll(),hocSinhDAO, lopDAO);

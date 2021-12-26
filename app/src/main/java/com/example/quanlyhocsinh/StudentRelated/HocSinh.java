@@ -18,6 +18,7 @@ public class HocSinh {
     public static final String COL_GIOITINH = "gioitinh_hs";
     public static final String COL_DIACHI = "diachi_hs";
 
+
     public int getId_hs() {
         return id_hs;
     }
