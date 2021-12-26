@@ -61,7 +61,6 @@ public class DbHocSinh extends SQLiteOpenHelper {
        db.execSQL(sql_lop);
        db.execSQL(sql_diem);
 
-
     }
 
     @Override

@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.quanlyhocsinh.Database.DbHocSinh;
+import com.example.quanlyhocsinh.StudentRelated.HocSinh;
 
 import org.apache.http.conn.ConnectTimeoutException;
 
@@ -18,6 +19,18 @@ public class DiemDAO {
 
     public DiemDAO(Context context) {
         dbHocSinh = new DbHocSinh(context);
+    }
+
+    public void deleteAllData() {
+        open();
+        sqLiteDatabase.delete(Diem.DIEM_DB_NAME, null, null);
+        close();
+    }
+
+    public void addListData(ArrayList<Diem> diems) {
+        for (Diem x : diems) {
+            addRow(x);
+        }
     }
 
     public void open(){

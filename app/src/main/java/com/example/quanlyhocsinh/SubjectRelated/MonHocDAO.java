@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 
 import com.example.quanlyhocsinh.Database.DbHocSinh;
+import com.example.quanlyhocsinh.StudentRelated.HocSinh;
 
 public class MonHocDAO {
     SQLiteDatabase sqLiteDatabase;
@@ -23,6 +24,18 @@ public class MonHocDAO {
 
     public void close(){
         dbHocSinh.close();
+    }
+
+    public void deleteAllData() {
+        open();
+        sqLiteDatabase.delete(MonHoc.TB_MONHOC_NAME, null, null);
+        close();
+    }
+
+    public void addListData(ArrayList<MonHoc> monHocs) {
+        for (MonHoc x : monHocs) {
+            addRow(x);
+        }
     }
 
     public long addRow(MonHoc monHoc){

@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.quanlyhocsinh.Database.DbHocSinh;
+import com.example.quanlyhocsinh.StudentRelated.HocSinh;
 import com.example.quanlyhocsinh.SubjectRelated.MonHoc;
 
 import java.util.ArrayList;
@@ -27,9 +28,22 @@ public class LopDAO {
         dbHocSinh.close();
     }
 
+    public void deleteAllData() {
+        open();
+        sqLiteDatabase.delete(Lop.DB_LOP_NAME, null, null);
+        close();
+    }
+
+    public void addListData(ArrayList<Lop> lops) {
+        for (Lop x: lops) {
+            addRow(x);
+        }
+    }
+
     public long addRow(Lop lop){
         open();
         ContentValues values = new ContentValues();
+        values.put(Lop.COL_MALOP, lop.getMa_lop());
         values.put(Lop.COL_TENLOP,lop.getTen_lop());
         values.put(Lop.COL_SOLUONG,lop.getSo_luong());
 
