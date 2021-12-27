@@ -33,6 +33,7 @@ public class HocSinhDAO {
 
     RequestQueue requestQueue ;
 
+    String urlGetJsonStudent = "http://khang123-001-site1.dtempurl.com/Home/getJSONHocSinh";
     String urlAdd = "http://khang123-001-site1.dtempurl.com/Home/Create";
     String urlUpdate = "http://khang123-001-site1.dtempurl.com/Home/Edit";
     String urlDelete = "http://khang123-001-site1.dtempurl.com/Home/Delete";
@@ -285,6 +286,60 @@ public class HocSinhDAO {
             }
         }
         return listHocSinhs;
+    }
+
+    public void getDataStudentFromWeb() {
+
+        Response.Listener<JSONArray> listener = new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                ArrayList<HocSinh> hocSinhs = new ArrayList<HocSinh>();
+                int n = 0;
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject jsonObject = response.getJSONObject(i);
+
+                        HocSinh hocSinh = new HocSinh();
+
+                        int id = jsonObject.getInt("id_hs");
+                        int malop = jsonObject.getInt("lop_hs");
+                        String diachi = jsonObject.getString("diachi_hs");
+                        String ten = jsonObject.getString("ten_hs");
+                        int gt = jsonObject.getInt("gioitinh_hs");
+                        int ns = jsonObject.getInt("ns_hs");
+
+                        hocSinh.setId_hs(id);
+                        hocSinh.setTen_hs(ten);
+                        hocSinh.setLop_hs(malop);
+                        hocSinh.setNs_hs(ns);
+                        hocSinh.setDiachi_hs(diachi);
+                        if (gt == 1) {
+                            hocSinh.setGioitinh_hs(true);
+                        } else {
+                            hocSinh.setGioitinh_hs(false);
+                        }
+
+                        hocSinhs.add(hocSinh);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (n==0) {
+                    addListData(hocSinhs);
+                    n++;
+                }
+            }
+        };
+
+        Response.ErrorListener errorListener = new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        };
+        JsonArrayRequest request = new JsonArrayRequest(urlGetJsonStudent, listener, errorListener);
+        requestQueue.add(request);
+
     }
 
 

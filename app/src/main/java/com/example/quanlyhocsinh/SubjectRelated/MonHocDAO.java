@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,10 +15,15 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.quanlyhocsinh.Database.DbHocSinh;
 import com.example.quanlyhocsinh.StudentRelated.HocSinh;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MonHocDAO {
     SQLiteDatabase sqLiteDatabase;
@@ -25,6 +31,7 @@ public class MonHocDAO {
 
     RequestQueue requestQueue;
 
+    String urlGetJsonSubject = "http://khang123-001-site1.dtempurl.com/QuanLyMonHoc/getJSONMonHoc";
     String urlAdd = "http://khang123-001-site1.dtempurl.com/QuanLyMonHoc/Create";
     String urlUpdate = "http://khang123-001-site1.dtempurl.com/QuanLyMonHoc/Edit";
     String urlDelete = "http://khang123-001-site1.dtempurl.com/QuanLyMonHoc/Delete";
@@ -208,6 +215,50 @@ public class MonHocDAO {
         }
         close();
         return monHocs;
+    }
+
+    public void getDataSubjectFromWeb() {
+
+        Response.Listener<JSONArray> listener = new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                ArrayList<MonHoc> monHocs = new ArrayList<MonHoc>();
+                int n = 0;
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject jsonObject = response.getJSONObject(i);
+
+                        MonHoc monHoc = new MonHoc();
+
+                        int mamh = jsonObject.getInt("ma_mh");
+                        String tenmh = jsonObject.getString("ten_mh");
+                        int sotc = jsonObject.getInt("so_tinchi");
+
+                        monHoc.setMa_mh(mamh);
+                        monHoc.setTen_mh(tenmh);
+                        monHoc.setSo_tinchi(sotc);
+
+                        monHocs.add(monHoc);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (n==0) {
+                    addListData(monHocs);
+                    n++;
+                }
+            }
+        };
+
+        Response.ErrorListener errorListener = new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        };
+        JsonArrayRequest request = new JsonArrayRequest(urlGetJsonSubject, listener, errorListener);
+        requestQueue.add(request);
+
     }
 
 }

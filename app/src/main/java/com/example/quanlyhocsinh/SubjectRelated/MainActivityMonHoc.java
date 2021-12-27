@@ -33,6 +33,7 @@ public class MainActivityMonHoc extends AppCompatActivity {
 
         monHocDAO = new MonHocDAO(MainActivityMonHoc.this);
 
+
         monHocAdapter = new MonHocAdapter(monHocDAO.getAll(), monHocDAO);
         lv_danhsach.setAdapter(monHocAdapter);
 

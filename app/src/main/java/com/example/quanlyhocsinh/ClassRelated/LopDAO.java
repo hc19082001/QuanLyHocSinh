@@ -5,12 +5,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 
 import com.android.volley.RequestQueue;
@@ -19,6 +21,10 @@ import com.android.volley.toolbox.Volley;
 import com.example.quanlyhocsinh.Database.DbHocSinh;
 import com.example.quanlyhocsinh.StudentRelated.HocSinh;
 import com.example.quanlyhocsinh.SubjectRelated.MonHoc;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,12 +37,10 @@ public class LopDAO {
 
     RequestQueue requestQueue;
 
-
-
+    String urlGetJsonClass = "http://khang123-001-site1.dtempurl.com/QuanLyLop/getJSONLop";
     String urlAdd = "http://khang123-001-site1.dtempurl.com/QuanLyLop/Create";
     String urlUpdate = "http://khang123-001-site1.dtempurl.com/QuanLyLop/Edit";
     String urlDelete = "http://khang123-001-site1.dtempurl.com/QuanLyLop/Delete";
-
 
     public LopDAO(Context context) {
 
@@ -240,6 +244,50 @@ public class LopDAO {
             }
         };
         requestQueue.add(request);
+    }
+
+    public void getDataClassFromWeb() {
+
+        Response.Listener<JSONArray> listener = new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                ArrayList<Lop> lops = new ArrayList<Lop>();
+                int n = 0;
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject jsonObject = response.getJSONObject(i);
+
+                        Lop lop = new Lop();
+
+                        int malop = jsonObject.getInt("ma_lop");
+                        String tenlop = jsonObject.getString("ten_lop");
+                        int solg = jsonObject.getInt("so_luong");
+
+                        lop.setMa_lop(malop);
+                        lop.setTen_lop(tenlop);
+                        lop.setSo_luong(solg);
+
+                        lops.add(lop);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (n==0) {
+                    addListData(lops);
+                    n++;
+                }
+            }
+        };
+
+        Response.ErrorListener errorListener = new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        };
+        JsonArrayRequest request = new JsonArrayRequest(urlGetJsonClass, listener, errorListener);
+        requestQueue.add(request);
+
     }
 
 

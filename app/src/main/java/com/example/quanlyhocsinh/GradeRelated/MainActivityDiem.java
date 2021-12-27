@@ -65,6 +65,7 @@ public class MainActivityDiem extends AppCompatActivity {
         );
         spinner.setAdapter(lopArrayAdapter);
 
+
         diemAdapter = new DiemAdapter(hocSinhDAO, hocSinhArrayList);
         listView.setAdapter(diemAdapter);
 

@@ -4,12 +4,14 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.quanlyhocsinh.Database.DbHocSinh;
@@ -17,13 +19,16 @@ import com.example.quanlyhocsinh.StudentRelated.HocSinh;
 import com.example.quanlyhocsinh.SubjectRelated.MonHoc;
 
 import org.apache.http.conn.ConnectTimeoutException;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class DiemDAO {
-
+    String urlGetJsonGrade = "http://khang123-001-site1.dtempurl.com/QuanLyDiem/getJSONDiem";
     String urlAdd = "http://khang123-001-site1.dtempurl.com/QuanLyDiem/Create";
     String urlUpdate = "http://khang123-001-site1.dtempurl.com/QuanLyDiem/Edit";
     String urlDelete = "http://khang123-001-site1.dtempurl.com/QuanLyDiem/Delete";
@@ -224,6 +229,54 @@ public class DiemDAO {
         close();
 
         return diem;
+    }
+
+    public void getDataGradeFromWeb() {
+
+        Response.Listener<JSONArray> listener = new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                ArrayList<Diem> diems = new ArrayList<Diem>();
+                int n = 0;
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject jsonObject = response.getJSONObject(i);
+
+                        Diem diem = new Diem();
+
+                        int idhs = jsonObject.getInt("id_hs");
+                        int mamh = jsonObject.getInt("ma_mh");
+                        double diemQT = jsonObject.getDouble("diemQT");
+                        double diemGK = jsonObject.getDouble("diemGK");
+                        double diemCK = jsonObject.getDouble("diemCK");
+
+                        diem.setId_hs(idhs);
+                        diem.setMa_mh(mamh);
+                        diem.setDiemQT(diemQT);
+                        diem.setDiemGK(diemGK);
+                        diem.setDiemCK(diemCK);
+
+                        diems.add(diem);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (n==0) {
+                    addListData(diems);
+                    n++;
+                }
+            }
+        };
+
+        Response.ErrorListener errorListener = new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        };
+        JsonArrayRequest request = new JsonArrayRequest(urlGetJsonGrade, listener, errorListener);
+        requestQueue.add(request);
+
     }
 
 
