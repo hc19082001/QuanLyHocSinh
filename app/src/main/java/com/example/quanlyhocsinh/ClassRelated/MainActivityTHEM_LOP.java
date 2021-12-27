@@ -49,18 +49,15 @@ public class MainActivityTHEM_LOP extends AppCompatActivity {
                 String ten = edt_ten.getText().toString();
                 int slg = Integer.parseInt(edt_slg.getText().toString());
 
-                Lop lop = new Lop(ten, slg);
+                Lop lop = new Lop(0, ten, slg);
 
                 long kq = lopDAO.addRow(lop);
 
-                if(kq>0){
+                lopDAO.addDataFromWeb(lop);
+
                     Toast.makeText(MainActivityTHEM_LOP.this, "THÊM THÀNH CÔNG", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivityTHEM_LOP.this, MainActivityLop.class);
                     startActivity(intent);
-
-                }else {
-                    Toast.makeText(MainActivityTHEM_LOP.this, "THÊM THẤT BẠI", Toast.LENGTH_SHORT).show();
-                }
             }
         });
 

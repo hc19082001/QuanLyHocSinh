@@ -65,7 +65,10 @@ public class LopAdapter extends BaseAdapter {
         img_btn_Sua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 showDialogUpdate(parent.getContext(),position ,lop);
+
+
             }
         });
 
@@ -79,11 +82,11 @@ public class LopAdapter extends BaseAdapter {
                 builder.setPositiveButton("CÓ", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
                         if (lopDAO.getSLHSmotLop(lop.getMa_lop()) > 0) {
                             Toast.makeText(parent.getContext(), "CÒN HỌC SINH TRONG LỚP, KHÔNG THỂ XÓA", Toast.LENGTH_SHORT).show();
                         } else {
                             int kq = lopDAO.deleteRow(lop);
+                            lopDAO.deleteDataToWeb(lop.getMa_lop());
                             if(kq>0){
                                 lopArrayList.remove(position);
                                 notifyDataSetChanged();
@@ -110,6 +113,7 @@ public class LopAdapter extends BaseAdapter {
         tv_ten.setText(lop.getTen_lop());
         tv_lop.setText(lop.getSo_luong()+"");
         tv_lop_ht.setText(lopDAO.getSLHSmotLop(lop.getMa_lop())+"");
+
 
         return itemView;
     }
@@ -140,14 +144,13 @@ public class LopAdapter extends BaseAdapter {
                     lop.setTen_lop(ten);
                     lop.setSo_luong(slg);
 
-                    int kq = lopDAO.updateRow(lop);
-                    if(kq>0){
-                        lopArrayList.set(vitri,lop);
+                    lopDAO.updateRow(lop);
+
+                    lopDAO.updateDataToWeb(lop);
+                    
                         notifyDataSetChanged();
                         Toast.makeText(context, "SỬA THÀNH CÔNG", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(context, "SỬA THẤT BẠI", Toast.LENGTH_SHORT).show();
-                    }
+
                     dialog.dismiss();
                 }
             }

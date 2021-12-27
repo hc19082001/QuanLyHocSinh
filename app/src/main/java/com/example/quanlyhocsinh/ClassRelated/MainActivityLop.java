@@ -36,18 +36,10 @@ public class MainActivityLop extends AppCompatActivity {
     LopAdapter lopAdapter;
     Toolbar toolbar;
 
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_lop);
-
-
-
 
         lv_danhsach = findViewById(R.id.lv_danhsach_lop);
         toolbar = findViewById(R.id.toolbar_lop);

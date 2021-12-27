@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar; // Dùng cho setSupportActionBar(toolbar);
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -270,6 +271,7 @@ public class MainActivityMENU extends AppCompatActivity {
         Response.Listener<JSONArray> listener = new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
+
                 ArrayList<HocSinh> hocSinhs = new ArrayList<HocSinh>();
                 int n = 0;
                 for (int i = 0; i < response.length(); i++) {
@@ -315,7 +317,7 @@ public class MainActivityMENU extends AppCompatActivity {
                 Toast.makeText(MainActivityMENU.this, "NO INTERNET", Toast.LENGTH_SHORT).show();
             }
         };
-        JsonArrayRequest request = new JsonArrayRequest(urlGetJsonStudent, listener, errorListener);
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, urlGetJsonStudent, null, listener, errorListener);
         requestQueue.add(request);
 
     }
