@@ -8,9 +8,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
 import com.example.quanlyhocsinh.Database.DbHocSinh;
 import com.example.quanlyhocsinh.StudentRelated.HocSinh;
 import com.example.quanlyhocsinh.SubjectRelated.MonHoc;
@@ -24,14 +29,27 @@ public class LopDAO {
     DbHocSinh dbHocSinh;
     SQLiteDatabase sqLiteDatabase;
 
+    RequestQueue requestQueue;
+
+
+
+    String urlAdd = "http://khang123-001-site1.dtempurl.com/QuanLyLop/Create";
+    String urlUpdate = "http://khang123-001-site1.dtempurl.com/QuanLyLop/Edit";
+    String urlDelete = "http://khang123-001-site1.dtempurl.com/QuanLyLop/Delete";
+
+
     public LopDAO(Context context) {
+
         dbHocSinh = new DbHocSinh(context);
+        requestQueue = Volley.newRequestQueue(context);
     }
     public void open(){
+
         sqLiteDatabase = dbHocSinh.getWritableDatabase();
     }
 
     public void close(){
+
         dbHocSinh.close();
     }
 
@@ -48,7 +66,10 @@ public class LopDAO {
         }
     }
 
-    public long addRow(Lop lop) {
+
+
+
+    public long addRow(Lop lop){
         open();
         ContentValues values = new ContentValues();
         values.put(Lop.COL_MALOP, lop.getMa_lop());
@@ -146,6 +167,82 @@ public class LopDAO {
         }
         return lops;
     }
+
+    public void addDataFromWeb(Lop lop){
+       StringRequest request = new StringRequest(Request.Method.POST, urlAdd, new Response.Listener<String>() {
+           @Override
+           public void onResponse(String response) {
+
+           }
+       }, new Response.ErrorListener() {
+           @Override
+           public void onErrorResponse(VolleyError error) {
+
+           }
+       }) {
+           @Override
+           protected Map<String, String> getParams() throws AuthFailureError {
+
+               Map<String, String> myData = new HashMap<>();
+               myData.put("ma_lop", String.valueOf( lop.getMa_lop()));
+               myData.put("ten_lop", lop.getTen_lop());
+               myData.put("so_luong",String.valueOf(lop.getSo_luong()));
+               return myData;
+           }
+       };
+       requestQueue.add(request);
+    }
+
+    public void updateDataToWeb(Lop lop){
+
+        StringRequest request = new StringRequest(Request.Method.POST, urlUpdate, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> myData = new HashMap<>();
+                myData.put("ma_lop", String.valueOf(lop.getMa_lop()));
+                myData.put("ten_lop", lop.getTen_lop());
+                myData.put("so_luong", String.valueOf(lop.getSo_luong()));
+
+                return myData;
+            }
+        };
+        requestQueue.add(request);
+    }
+
+    public void deleteDataToWeb(int id){
+        StringRequest request = new StringRequest(Request.Method.POST, urlDelete, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> myData = new HashMap<>();
+                myData.put("ID",String.valueOf(id));
+                return myData;
+            }
+        };
+        requestQueue.add(request);
+    }
+
+
 
 
 }
