@@ -49,16 +49,12 @@ public class MainActivityTHEM_MONHOC extends AppCompatActivity {
                 monHoc.setTen_mh(ten);
                 monHoc.setSo_tinchi(stc);
 
-                long kq = monHocDAO.addRow(monHoc);
-
-                if(kq>0){
+                    monHocDAO.addRow(monHoc);
+                    monHocDAO.addDataToWeb(monHoc);
                     Toast.makeText(MainActivityTHEM_MONHOC.this, "THÊM THÀNH CÔNG", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivityTHEM_MONHOC.this,MainActivityMonHoc.class);
                     startActivity(intent);
 
-                }else {
-                    Toast.makeText(MainActivityTHEM_MONHOC.this, "THÊM THẤT BẠI", Toast.LENGTH_SHORT).show();
-                }
             }
         });
 

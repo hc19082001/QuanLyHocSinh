@@ -80,6 +80,7 @@ public class MonHocAdapter extends BaseAdapter {
                     public void onClick(DialogInterface dialog, int which) {
                         int kq = monHocDAO.deleteRow(monHoc);
                         if(kq>0){
+                            monHocDAO.deleteDataOnWeb(monHoc.getMa_mh());
                             monHocs.remove(position);
                             notifyDataSetChanged();
                             Toast.makeText(parent.getContext(), "XÓA THÀNH CÔNG", Toast.LENGTH_SHORT).show();
@@ -134,6 +135,7 @@ public class MonHocAdapter extends BaseAdapter {
 
                 int kq = monHocDAO.updateRow(monHoc);
                 if(kq>0){
+                    monHocDAO.updateDataToWeb(monHoc);
                     monHocs.set(vitri,monHoc);
                     notifyDataSetChanged();
                     Toast.makeText(context, "SỬA THÀNH CÔNG", Toast.LENGTH_SHORT).show();

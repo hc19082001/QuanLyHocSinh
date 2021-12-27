@@ -8,6 +8,7 @@
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activiti_themdsdiemhs.xml" value="0.12454710144927536" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_danhsach.xml" value="0.22" />
+        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_diem.xml" value="0.13043478260869565" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_lop.xml" value="0.17346014492753623" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_menu.xml" value="0.33" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/activity_main_mon_hoc.xml" value="0.1911231884057971" />
@@ -22,8 +23,11 @@
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/item_listview_lop.xml" value="0.25" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/item_listview_monhoc.xml" value="0.33" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/item_monhoc.xml" value="0.1911231884057971" />
+        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/loadingdata.xml" value="0.16394927536231885" />
+        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/layout/navigation_header.xml" value="0.16394927536231885" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/menu/menu_bar.xml" value="0.20416666666666666" />
         <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/menu/menu_mh.xml" value="0.20416666666666666" />
+        <entry key="..\:/LapTrinhMobile/ThamKhao/QuanLyHocSinh/app/src/main/res/menu/navigation_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/MONHOC/ANDROID_COBAN/ONTAP_ANDROID/QuanLyHocSinh/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
         <entry key="..\:/MONHOC/ANDROID_COBAN/ONTAP_ANDROID/QuanLyHocSinh/app/src/main/res/layout/activity_main_danhsach.xml" value="0.24592391304347827" />
         <entry key="..\:/MONHOC/ANDROID_COBAN/ONTAP_ANDROID/QuanLyHocSinh/app/src/main/res/layout/activity_main_menu.xml" value="0.24592391304347827" />

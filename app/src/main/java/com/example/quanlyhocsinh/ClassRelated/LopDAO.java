@@ -6,11 +6,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.example.quanlyhocsinh.Database.DbHocSinh;
 import com.example.quanlyhocsinh.StudentRelated.HocSinh;
 import com.example.quanlyhocsinh.SubjectRelated.MonHoc;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LopDAO {
 
@@ -34,20 +41,21 @@ public class LopDAO {
         close();
     }
 
+
     public void addListData(ArrayList<Lop> lops) {
         for (Lop x: lops) {
             addRow(x);
         }
     }
 
-    public long addRow(Lop lop){
+    public long addRow(Lop lop) {
         open();
         ContentValues values = new ContentValues();
         values.put(Lop.COL_MALOP, lop.getMa_lop());
-        values.put(Lop.COL_TENLOP,lop.getTen_lop());
-        values.put(Lop.COL_SOLUONG,lop.getSo_luong());
+        values.put(Lop.COL_TENLOP, lop.getTen_lop());
+        values.put(Lop.COL_SOLUONG, lop.getSo_luong());
 
-        long res = sqLiteDatabase.insert(Lop.DB_LOP_NAME,null,values);
+        long res = sqLiteDatabase.insert(Lop.DB_LOP_NAME, null, values);
         close();
 
         return res;
@@ -59,7 +67,6 @@ public class LopDAO {
         int res = sqLiteDatabase.delete(Lop.DB_LOP_NAME, Lop.COL_MALOP + " = ?",arh);
         close();
         return res;
-
     }
 
     public int updateRow(Lop lop){

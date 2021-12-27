@@ -57,7 +57,7 @@ public class dsdiemAdapter extends BaseAdapter {
         }else
             itemView = convertView;
 
-        MonHoc monHoc = (MonHoc) getItem(position);                             // Môn học hiện tại
+        MonHoc monHoc = (MonHoc) getItem(position);                                  // Môn học hiện tại
         Diem diem = diemDAO.getDiemHS(idhs, monHocs.get(position).getMa_mh());       // Điểm môn học đó
 
         TextView tv_mmh = itemView.findViewById(R.id.mmh_dsd);
@@ -85,6 +85,7 @@ public class dsdiemAdapter extends BaseAdapter {
                     public void onClick(DialogInterface dialog, int which) {
                         int kq = diemDAO.deleteRow(diem);
                         if(kq>0){
+                            diemDAO.deleteDataOnWeb(diem.getId_hs(), diem.getMa_mh());
                             monHocs.remove(position);
                             notifyDataSetChanged();
                             Toast.makeText(parent.getContext(), "XÓA THÀNH CÔNG", Toast.LENGTH_SHORT).show();
@@ -137,6 +138,7 @@ public class dsdiemAdapter extends BaseAdapter {
 
                 int kq = diemDAO.updateRow(diem1);
                 if(kq>0){
+                    diemDAO.updateDataToWeb(diem1);
                     Toast.makeText(context, "SỬA THÀNH CÔNG", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(context, "SỬA THẤT BẠI", Toast.LENGTH_SHORT).show();

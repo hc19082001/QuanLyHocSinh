@@ -37,17 +37,10 @@ public class MainActivityLop extends AppCompatActivity {
     Toolbar toolbar;
 
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_lop);
-
-
-
 
         lv_danhsach = findViewById(R.id.lv_danhsach_lop);
         toolbar = findViewById(R.id.toolbar_lop);
@@ -60,20 +53,8 @@ public class MainActivityLop extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-
     }
 
-
-
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_bar, menu);
-        return true;
-    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

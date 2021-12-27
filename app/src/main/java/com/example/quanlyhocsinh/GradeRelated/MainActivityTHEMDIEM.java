@@ -32,8 +32,6 @@ public class MainActivityTHEMDIEM extends AppCompatActivity {
     DiemDAO diemDAO;
     Toolbar toolbar;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,8 +69,6 @@ public class MainActivityTHEMDIEM extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-
                 MonHoc monHoc = (MonHoc) spinner.getSelectedItem();
 
                 int dqt = Integer.parseInt(editTextDQT.getText().toString());
@@ -81,9 +77,9 @@ public class MainActivityTHEMDIEM extends AppCompatActivity {
 
                 Diem diem = new Diem(idhs, monHoc.getMa_mh(), dqt, dgk, dck);
 
-                long kq = diemDAO.addRow(diem);
+                diemDAO.addRow(diem);
+                diemDAO.addDataToWeb(diem);
 
-                if(kq>0){
                     Toast.makeText(MainActivityTHEMDIEM.this, "THÊM THÀNH CÔNG", Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(MainActivityTHEMDIEM.this, MainActivityTTHS.class);
@@ -91,16 +87,10 @@ public class MainActivityTHEMDIEM extends AppCompatActivity {
                     intent.putExtra("tenhs", ten);
                     intent.putExtra("lophs", lop);
                     intent.putExtra("gths", gt);
-
                     startActivity(intent);
 
-                }else {
-                    Toast.makeText(MainActivityTHEMDIEM.this, "THÊM THẤT BẠI", Toast.LENGTH_SHORT).show();
-                }
             }
         });
-
-
     }
 
     @Override
