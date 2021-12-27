@@ -155,6 +155,7 @@ public class MonHocDAO {
                 myData.put("ma_mh", String.valueOf(monHoc.getMa_mh()));
                 myData.put("ten_mh", String.valueOf(monHoc.getTen_mh()));
                 myData.put("so_tinchi", String.valueOf(monHoc.getSo_tinchi()));
+
                 return myData;
             }
         };

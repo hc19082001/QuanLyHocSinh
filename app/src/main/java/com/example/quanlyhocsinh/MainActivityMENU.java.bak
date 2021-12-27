@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar; // Dùng cho setSupportActionBar(toolbar);
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -52,20 +53,7 @@ public class MainActivityMENU extends AppCompatActivity {
     DrawerLayout drawerLayout;
     Toolbar toolbar;
 
-<<<<<<< HEAD
-=======
-    HocSinhDAO hocSinhDAO;
-    LopDAO lopDAO;
-    MonHocDAO monHocDAO;
-    DiemDAO diemDAO;
-
-    RequestQueue requestQueue;
-
-    Button btnDanhsach;
-    Button btnMH;
-    Button btnLOP;
-    Button buttonDIEM;
->>>>>>> Cuong-Test
+    AsyncTaskGetData asyncTaskGetData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,13 +63,6 @@ public class MainActivityMENU extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerlayout);
         toolbar = findViewById(R.id.toolbar_nav);
 
-        hocSinhDAO = new HocSinhDAO(this);
-        lopDAO = new LopDAO(this);
-        monHocDAO = new MonHocDAO(this);
-        diemDAO = new DiemDAO(this);
-
-        requestQueue = Volley.newRequestQueue(this);
-
         NavigationView navigationView = findViewById(R.id.nav_drawer);
         setSupportActionBar(toolbar);
 
@@ -89,15 +70,8 @@ public class MainActivityMENU extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        diemDAO.deleteAllData();
-        monHocDAO.deleteAllData();
-        hocSinhDAO.deleteAllData();
-        lopDAO.deleteAllData();
-
-        getDataStudentFromWeb();
-        getDataClassFromWeb();
-        getDataSubjectFromWeb();
-        getDataGradeFromWeb();
+        asyncTaskGetData = new AsyncTaskGetData(MainActivityMENU.this);
+        asyncTaskGetData.execute();
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -127,6 +101,8 @@ public class MainActivityMENU extends AppCompatActivity {
         });
     }
 
+<<<<<<< HEAD
+=======
     private void getDataGradeFromWeb() {
 
         Response.Listener<JSONArray> listener = new Response.Listener<JSONArray>() {
@@ -271,6 +247,7 @@ public class MainActivityMENU extends AppCompatActivity {
         Response.Listener<JSONArray> listener = new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
+
                 ArrayList<HocSinh> hocSinhs = new ArrayList<HocSinh>();
                 int n = 0;
                 for (int i = 0; i < response.length(); i++) {
@@ -316,10 +293,11 @@ public class MainActivityMENU extends AppCompatActivity {
                 Toast.makeText(MainActivityMENU.this, "NO INTERNET", Toast.LENGTH_SHORT).show();
             }
         };
-        JsonArrayRequest request = new JsonArrayRequest(urlGetJsonStudent, listener, errorListener);
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, urlGetJsonStudent, null, listener, errorListener);
         requestQueue.add(request);
 
     }
+>>>>>>> Khang_test
 
     @Override
     public void onBackPressed() {
