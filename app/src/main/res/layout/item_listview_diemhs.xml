@@ -36,10 +36,11 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="ID:"
-                        android:textColor="#370A88" />
+                        android:textColor="#370A88"
+                        android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_id_diem"
+                        android:id="@+id/tv_id_diem1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -61,10 +62,11 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="TÊN:"
-                        android:textColor="#370A88" />
+                        android:textColor="#370A88"
+                        android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_ten_diem"
+                        android:id="@+id/tv_ten_diem1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -73,7 +75,7 @@
                         android:textColor="#370A88" />
 
                     <ImageView
-                        android:id="@+id/imv_gt_diem"
+                        android:id="@+id/imv_gt_diem1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="280dp"
@@ -95,10 +97,11 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="LỚP:"
-                        android:textColor="#370A88" />
+                        android:textColor="#370A88"
+                        android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_lop_diem"
+                        android:id="@+id/tv_lop_diem1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

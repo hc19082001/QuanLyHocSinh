@@ -35,7 +35,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="ID:"
-                        android:textColor="#E65183" />
+                        android:textColor="#E65183"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tv_id"
@@ -59,7 +60,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="TÊN:"
-                        android:textColor="#E65183" />
+                        android:textColor="#E65183"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tv_ten"
@@ -90,7 +92,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="LỚP:"
-                        android:textColor="#E65183" />
+                        android:textColor="#E65183"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tv_lop"

@@ -50,7 +50,7 @@ public class DiemAdapter extends BaseAdapter {
         View itemView;
 
         if(convertView==null){
-            itemView = View.inflate(parent.getContext(), R.layout.item_listview_diemhs,null);
+            itemView = View.inflate(parent.getContext(), R.layout.dshsnew,null);
         }else
             itemView = convertView;
 
