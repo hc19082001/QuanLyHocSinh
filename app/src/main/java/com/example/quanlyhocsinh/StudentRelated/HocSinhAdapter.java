@@ -221,10 +221,7 @@ public class HocSinhAdapter extends BaseAdapter {
                     notifyDataSetChanged();
                     Toast.makeText(context, "SỬA THÀNH CÔNG", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
-
-
                 }
-
             }
         });
         dialog.show();

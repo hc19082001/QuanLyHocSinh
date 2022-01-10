@@ -77,7 +77,7 @@ public class MainActivityTHEMDIEM extends AppCompatActivity {
 
                 Diem diem = new Diem(idhs, monHoc.getMa_mh(), dqt, dgk, dck);
 
-                diemDAO.addRow(diem);
+
                 diemDAO.addDataToWeb(diem);
 
                     Toast.makeText(MainActivityTHEMDIEM.this, "THÊM THÀNH CÔNG", Toast.LENGTH_SHORT).show();

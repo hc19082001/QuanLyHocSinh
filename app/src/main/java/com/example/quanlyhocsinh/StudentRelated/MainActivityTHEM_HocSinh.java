@@ -103,12 +103,13 @@ public class MainActivityTHEM_HocSinh extends AppCompatActivity {
                     hocSinh.setNs_hs(ns);
                     hocSinh.setGioitinh_hs(gt);
                     hocSinh.setDiachi_hs(dc);
-                    hocSinhDAO.addRow(hocSinh);
+
                     hocSinhDAO.addDataToWeb(hocSinh);
 
                     Toast.makeText(MainActivityTHEM_HocSinh.this, "THÊM THÀNH CÔNG", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivityTHEM_HocSinh.this,MainActivityDANHSACH.class);
                     startActivity(intent);
+                    finish();
 
                 }
 

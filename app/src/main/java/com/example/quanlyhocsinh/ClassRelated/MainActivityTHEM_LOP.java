@@ -51,7 +51,6 @@ public class MainActivityTHEM_LOP extends AppCompatActivity {
 
                 Lop lop = new Lop(0, ten, slg);
 
-                long kq = lopDAO.addRow(lop);
 
                 lopDAO.addDataFromWeb(lop);
 

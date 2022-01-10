@@ -53,7 +53,6 @@ public class AsyncTaskGetData extends AsyncTask<Void, Void, Void> {
 
         dialog = new Dialog(context, R.style.Theme_AppCompat_Light_Dialog_Alert);
         dialog.setContentView(R.layout.loadingdata);
-
         dialog.show();
 
     }
@@ -62,11 +61,6 @@ public class AsyncTaskGetData extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... voids) {
 
         deleteAllData();
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         getAllDataFromWeb();
 
         return null;

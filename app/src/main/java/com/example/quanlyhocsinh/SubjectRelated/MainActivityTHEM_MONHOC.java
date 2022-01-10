@@ -49,7 +49,6 @@ public class MainActivityTHEM_MONHOC extends AppCompatActivity {
                 monHoc.setTen_mh(ten);
                 monHoc.setSo_tinchi(stc);
 
-                    monHocDAO.addRow(monHoc);
                     monHocDAO.addDataToWeb(monHoc);
                     Toast.makeText(MainActivityTHEM_MONHOC.this, "THÊM THÀNH CÔNG", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivityTHEM_MONHOC.this,MainActivityMonHoc.class);

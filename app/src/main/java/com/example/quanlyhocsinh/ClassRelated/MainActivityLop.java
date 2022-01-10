@@ -21,7 +21,9 @@ import android.content.DialogInterface;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.quanlyhocsinh.MainActivityMENU;
 import com.example.quanlyhocsinh.R;
+import com.example.quanlyhocsinh.StudentRelated.MainActivityDANHSACH;
 import com.example.quanlyhocsinh.SubjectRelated.MainActivityMonHoc;
 import com.example.quanlyhocsinh.SubjectRelated.MainActivityTHEM_MONHOC;
 import com.example.quanlyhocsinh.SubjectRelated.MonHocAdapter;
@@ -71,7 +73,9 @@ public class MainActivityLop extends AppCompatActivity {
                 break;
 
             default:
-                onBackPressed();
+                Intent intent1 = new Intent(MainActivityLop.this, MainActivityMENU.class);
+                startActivity(intent1);
+                finish();
                 break;
         }
         return super.onOptionsItemSelected(item);
